@@ -1,0 +1,57 @@
+/****************폰트연결****************/
+
+@import url('https://rsms.me/inter/inter.css');
+
+/****************css초기화****************/
+
+body { margin: 0; font-family: 'Inter', sans-serif; color: var(--basic-color); font-size: 14px; font-weight: 500; -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; user-select: none; -webkit-box-sizing:border-box ; 
+-moz-box-sizing:border-box ; -o-box-sizing:border-box ; -ms-box-sizing:border-box ; box-sizing:border-box; }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; vertical-align: top; }
+div, header, footer, section, nav { position: relative; }
+img { vertical-align: top; max-width: 100%; }
+li { list-style: none; }
+a { text-decoration: none; color: var(--basic-color);; }
+input { background-color: #fff; box-sizing: border-box; }
+input[type="text"] { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+select::-ms-expand { display: none; }
+textarea { resize: none; outline: none; }
+button {font-family: 'Inter', sans-serif; cursor:pointer; border:none; margin:0; padding:0; background: transparent; color: var(--basic-color);}
+input,button,select { vertical-align:middle; outline: none; }
+
+.blind {position:absolute; width:1px; height:1px; overflow:hidden; margin:-1px; clip:rect(0 0 0 0);}
+
+/* 전체 스크롤바 */
+::-webkit-scrollbar {
+    width: 8px; /* 스크롤바의 너비 설정 */
+    height: 8px;
+}
+
+/* 스크롤바 트랙 (배경) */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* 트랙 배경색 */
+    border-radius: 10px; /* 트랙 모서리 둥글게 */
+}
+
+/* 스크롤바 핸들 (스크롤할 수 있는 부분) */
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤 핸들의 색상 */
+    border-radius: 10px; /* 핸들 모서리 둥글게 */
+}
+
+/* 스크롤바 핸들 hover 시 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* hover 시 색상 */
+}
