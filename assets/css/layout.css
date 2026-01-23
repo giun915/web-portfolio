@@ -1,0 +1,46 @@
+/* 공통 */
+svg {height: 1em;}
+.page_inner {display: flex; width: 1600px; margin: 0 auto; box-sizing: border-box; padding: 0 2rem;}
+.common_trans_attr { transition: all 1s ease; transform: translateY(105%); }
+section.on .common_trans_attr {transform: translateY(0);}
+
+section {background: #121212;}
+section .page_inner {height: 100%; flex-direction: column; justify-content: center; align-items: center;}
+
+.section_title_wrap {overflow: hidden;}
+.section_title {width: 100%; font-size: 3rem; font-weight: 700; text-align: center; transform: translateY(100%); transition: all 1s ease;}
+.section_title span {color: var(--main-color);}
+.section_sub_title_wrap {margin-top: 1rem;}
+.section_sub_title_wrap .section_title {color: var(--gray-color); font-size: 1.125rem; font-weight: 400;}
+section.on .section_title {transform: translateY(0);}
+
+.common_mouse_icon_wrap {overflow: hidden;}
+.common_mouse_icon_wrap .mouse_icon {display: flex; justify-content: center; align-items: flex-start; width: 2rem; height: 3.75rem; border: 1px solid rgba(255,255,255, 0.4); border-radius: 9999px; box-sizing: border-box;}
+.common_mouse_icon_wrap .mouse_circle {position: relative; display:block; width: 0.5rem; height: 0.5rem; background: var(--basic-color); border-radius: 50%; animation: bounce 3s ease-in-out infinite;} 
+
+
+/* 헤더 */
+#header {position: fixed; width: 100%; top: 0; border-bottom: 1px solid var(--border-color); z-index: 2; background-color: #0a0a0ae6; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(4px);}
+#header .page_inner {padding: 1.6rem 2rem; justify-content: space-between;}
+#header .logo {font-size: 1.5rem; font-weight: 700;}
+#header .logo span {color: var(--main-color);}
+#header .gnb_wrap {display: flex; align-items: center; justify-content: center; gap: 60px;}
+
+#header .gnb_wrap .gnb a {position: relative; display: flex; justify-content: center; transition: all 0.4s ease;}
+#header .gnb_wrap .gnb:hover a {color: var(--main-color);}
+#header .gnb_wrap .gnb.on a:after {content: ""; position: absolute; top: -10px; width: 4px; height: 4px; background: var(--main-color); border-radius: 50%;}
+
+/* 푸터 */
+#footer {position: fixed; width: 100%; height: 2.5rem; line-height: 2.5rem; bottom: 0; border-top: 1px solid var(--border-color); background-color: #0a0a0ae6;}
+#footer .page_inner {justify-content: space-between;}
+#footer p {color: var(--gray-color);}
+
+/* 네비게이션 */
+#fp-nav.right {position: relative; display: flex; justify-content: center; align-items: center; top:initial; bottom: 0; right: 0; margin-top: 0 !important; margin-right: 25px; width: 120px; height: 40px; background: var(--secondary-color); border-radius: 6px 6px 0 0;}
+#fp-nav.right:before, #fp-nav.right:after {content: ""; position: absolute; transition: all 0.4s ease;}
+#fp-nav.right:before { transform: translateX(-100%); left: 0; bottom: 0; border-top: 18px solid transparent; border-right: 12px solid var(--secondary-color); border-bottom: 18px solid var(--secondary-color); border-left: 12px solid transparent; }
+#fp-nav.right:after { transform: translateX(100%); right: 0; bottom: 0; border-top: 18px solid transparent; border-left: 12px solid var(--secondary-color); border-bottom: 18px solid var(--secondary-color); border-right: 12px solid transparent; }
+
+#fp-nav.right ul {display: flex; width: 100%; justify-content: space-around;}
+#fp-nav ul li a span, .fp-slidesNav ul li a span {background: #dbc3b1;}
+#fp-nav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li a.active span, .fp-slidesNav ul li:hover a.active span {background-color: var(--basic-color);}
