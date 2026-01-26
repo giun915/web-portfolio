@@ -101,3 +101,5 @@ function initSkillSection(index) {
         el.classList.toggle('has_scroll', hasScroll);
     });
 }
+
+

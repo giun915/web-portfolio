@@ -10,5 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
     spaceBetween: 32,
     mousewheel: false,
   });
+
+  const projectSlide = new Swiper('.projectSlide', {
+    pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+    },
+    slidesPerView: 3,
+    spaceBetween: 32,
+    mousewheel: true,
+  });
   
 });
