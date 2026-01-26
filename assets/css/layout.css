@@ -92,3 +92,51 @@ section.on .section_title {transform: translateY(0);}
 .about_section .card_icon i {display: flex; align-items: center; font-size: 1.5rem; color: var(--main-color);}
 .about_section .card_content .title {font-weight: 600; font-size: 1.125rem; line-height: 1.75rem;}
 .about_section .card_content .content {color: var(--gray-color); font-size: 16px;}
+
+/* skills */
+.skills_section .page_inner {gap: 2rem;}
+.skills_section .section_title_area {margin-top: 2rem;}
+.skills_section .skills_box_area {width: 100%;}
+.skills_section .box_area_inner {overflow:hidden;}
+
+.skills_section .skills_box_list {display: flex;}
+.skills_section .skill_box {display: flex; flex-direction: column; gap: 1.5rem; height: auto; padding: 2rem; background: var(--box-bg-color); border: 1px solid var(--border-color); border-radius: 0.75rem; transition: all 0.4s ease; box-sizing: border-box;}
+.skills_section .skill_box:hover {border: 1px solid var(--main-color);}
+.skills_section .skill_box .box_icon {display: flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; border-radius: 0.5rem;}
+.skills_section .skill_box .box_icon i {font-size: 1.875rem; color: var(--basic-color); line-height: 0;}
+.skills_section .skill_box .box_title {font-size: 1.5rem; font-weight: 600;}
+.skills_section .skill_box .box_content { display: box; line-clamp: 2; box-orient: vertical; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;font-size: 1rem; color: var(--gray-color); word-break: keep-all;}
+.skills_section .skill_box .skill_level_list {display: flex; flex-direction: column; gap: 1rem; max-height: 145px; overflow-y: auto; }
+.skills_section .skill_box .skill_level_list.has_scroll {padding-right: 15px;}
+.skills_section .skill_box .skill_header {display: flex; justify-content: space-between; margin-bottom: 0.725rem;}
+.skills_section .skill_box .skill_header > * {font-size: 0.875rem;}
+.skills_section .skill_box .skill_bar_wrap {height: 0.5rem; background-color: #2b2b2b; border-radius: 9999px;}
+.skills_section .skill_box .skill_bar {width: 0; height: 100%; background-color: #ffffff; border-radius: 9999px; transition: width 1s ease;}
+
+.skills_section .publishing_box .box_icon {background: linear-gradient(to bottom right, var(--main-color), #0891b2);}
+.skills_section .publishing_box .per {color: var(--main-color);}
+.skills_section .publishing_box .skill_bar { background: linear-gradient(to right, var(--main-color), #0891b2);}
+
+.skills_section .front_box .box_icon {background: linear-gradient(to bottom right, #c084fc, #9333ea);}
+.skills_section .front_box .per {color: var(--secondary-color);}
+.skills_section .front_box .skill_bar { background: linear-gradient(to right, #c084fc , #9333ea);}
+
+.skills_section .back_box .box_icon {background: linear-gradient(to bottom right, var(--tertiary-color), #db2777);}
+.skills_section .back_box .per {color: var(--tertiary-color);}
+.skills_section .back_box .skill_bar { background: linear-gradient(to right, var(--tertiary-color) , #db2777);}
+
+.skills_section .database_box .box_icon {background: linear-gradient(to bottom right, var(--quaternary-color), #ca8a04);}
+.skills_section .database_box .per {color: var(--quaternary-color);}
+.skills_section .database_box .skill_bar { background: linear-gradient(to right, var(--quaternary-color) , #ca8a04);}
+
+.skills_section .swiper-button-prev, .skills_section .swiper-button-next {opacity: 0; visibility: hidden; transition: all 2s ease; color: var(--main-color);}
+.skills_section.on .swiper-button-prev, .skills_section.on .swiper-button-next {opacity: 1; visibility: visible;}
+.skills_section.on .swiper-button-next.swiper-button-disabled, .skills_section.on .swiper-button-prev.swiper-button-disabled {opacity: 0.35;}
+.skills_section .swiper-button-prev {left: -50px;}
+.skills_section .swiper-button-next {right: -50px;}
+
+.skills_section .skills_simple_area .skills_box_list {display: grid; gap: 2rem; grid-template-columns: repeat(4, minmax(0, 1fr));}
+.skills_section .skills_simple_area .skill_box {padding: 1.5rem; gap: 0.5rem; justify-content: center; align-items: center;}
+.skills_section .skills_simple_area .box_icon {width: auto; height: auto;}
+.skills_section .skills_simple_area .box_icon i {font-size: 2.25rem;}
+.skills_section .skills_simple_area .box_name {font-size: 1rem;}

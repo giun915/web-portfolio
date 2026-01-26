@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // 2. intro 전용
             initIntroSection(index);
+
+            // 3. skills 전용
+            initSkillSection(index);
         }
     });
 });
@@ -67,4 +70,34 @@ function setSubIntroText(){
     // 글자 수 계산 후 steps() 값 자동 지정
     const textLength = textContent.length;
     el.style.setProperty("--steps", textLength);
+}
+
+// 스킬 섹션 퍼센트 채우기
+let skillInitDone = false;
+
+function initSkillSection(index) {
+    if (index !== 3 || skillInitDone) return;
+
+    document.querySelectorAll('.skill_level').forEach(item => {
+        const percent = item.dataset.skill;
+        const bar = item.querySelector('.skill_bar');
+        const text = item.querySelector('.per');
+
+        if (!percent || !bar || !text) return;
+
+        text.textContent = percent + '%';
+        
+        setTimeout(function () {
+            bar.style.width = percent + '%';
+        }, 1000);
+
+        item.setAttribute('aria-valuenow', percent);
+    });
+
+    skillInitDone = true;
+
+    document.querySelectorAll('.skill_level_list').forEach(el => {
+        const hasScroll = el.scrollHeight > el.clientHeight;
+        el.classList.toggle('has_scroll', hasScroll);
+    });
 }

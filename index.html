@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>웹개발 포트폴리오</title>
+        <link rel="stylesheet" href="assets/css/swiper.min.css" type="text/css">
         <link rel="stylesheet" href="assets/css/jquery.fullpage.min.css" type="text/css">
         <link rel="stylesheet" href="assets/css/default.css" type="text/css">
         <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
@@ -18,8 +19,10 @@
         <meta property="og:url" content="">
         <meta property="og:image" content="https://lumicode.kr/imgs/main_display.png" />
         <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/swiper.min.js"></script>
         <script src="assets/js/fullpage.js"></script>
         <script src="assets/js/layout.js"></script>
+        <script src="assets/js/slide.js"></script>
     </head>
     <body>
         <div id="wrap">
@@ -164,6 +167,288 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section section_3 skills_section" data-anchor="skills">
+                    <h4 class="blind">스킬 섹션</h4>
+                    <div class="page_inner">
+                        <div class="section_title_area">
+                            <div class="section_title_wrap">
+                                <h4 class="section_title">Technical <span>Skills</span></h4>
+                            </div>
+                            <div class="section_title_wrap section_sub_title_wrap">
+                                <h4 class="section_title">전문적으로 다루는 기술 스택입니다</span></h4>
+                            </div>
+                        </div>
+                        <div class="skills_box_area">
+                            <div class="box_area_inner">
+                                <div class="swiper skillSlide common_trans_attr">
+                                    <ul class="swiper-wrapper skills_box_list">
+                                        <li class="swiper-slide skill_box publishing_box">
+                                            <div class="box_icon">
+                                                <i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                        <path fill="currentColor" d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <h5 class="box_title">Publishing</h5>
+                                            <p class="box_content">시맨틱 마크업과 최신 CSS 기술을 활용한 웹 표준 및 접근성 기반 퍼블리싱 구현</p>
+                                            <ul class="skill_level_list">
+                                                <li class="skill_level" data-skill="95">
+                                                    <div class="skill_header">
+                                                        <p class="name">HTML5</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="90">
+                                                    <div class="skill_header">
+                                                        <p class="name">CSS3</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="90">
+                                                    <div class="skill_header">
+                                                        <p class="name">Responsive</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="swiper-slide skill_box front_box">
+                                            <div class="box_icon">
+                                                <i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                                        <path fill="currentColor" d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"></path>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <h5 class="box_title">Front-End</h5>
+                                            <p class="box_content">JavaScript 기반 인터랙션과 사용자 경험을 고려한 프론트엔드 기능 구현</p>
+                                            <ul class="skill_level_list">
+                                                <li class="skill_level" data-skill="90">
+                                                    <div class="skill_header">
+                                                        <p class="name">Vanilla JS</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="95">
+                                                    <div class="skill_header">
+                                                        <p class="name">jQuery</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="85">
+                                                    <div class="skill_header">
+                                                        <p class="name">Typescript</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="85">
+                                                    <div class="skill_header">
+                                                        <p class="name">Vue.js</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="swiper-slide skill_box back_box">
+                                            <div class="box_icon">
+                                                <i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 100.000000 100.000000">
+                                                        <g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
+                                                        fill="#ffffff" stroke="none">
+                                                            <path d="M395 893 c-4 -21 -8 -49 -11 -63 -3 -17 -18 -33 -49 -49 l-45 -24
+                                                            -51 22 c-29 11 -55 21 -59 21 -8 0 -100 -157 -100 -170 0 -3 20 -21 45 -39 45
+                                                            -32 45 -33 45 -91 0 -58 0 -59 -45 -91 -25 -18 -45 -36 -45 -39 0 -13 92 -170
+                                                            100 -170 4 0 30 10 59 21 l51 22 45 -24 c37 -20 46 -30 51 -59 3 -19 8 -47 10
+                                                            -63 l6 -27 98 0 99 0 6 38 c4 20 8 48 11 62 3 17 18 33 49 49 l45 24 51 -22
+                                                            c29 -11 55 -21 59 -21 8 0 100 157 100 169 0 4 -20 22 -45 41 -44 33 -45 35
+                                                            -45 90 0 55 1 57 45 90 25 19 45 37 45 41 0 12 -92 169 -100 169 -4 0 -30 -10
+                                                            -59 -21 l-51 -22 -45 24 c-37 20 -46 30 -51 59 -3 19 -8 47 -10 63 l-6 27 -98
+                                                            0 -99 0 -6 -37z m159 -310 c-13 -49 -34 -125 -46 -170 -21 -78 -24 -83 -49
+                                                            -83 l-27 0 24 88 c13 48 34 124 46 170 21 77 24 82 49 82 l28 0 -25 -87z
+                                                            m-154 -24 c0 -26 -6 -33 -40 -47 -22 -9 -40 -19 -40 -22 0 -3 18 -13 40 -22
+                                                            34 -14 40 -21 40 -47 0 -17 -5 -31 -10 -31 -6 0 -42 16 -80 35 -63 32 -70 38
+                                                            -70 65 0 27 7 33 68 64 84 44 92 44 92 5z m290 -4 c63 -32 70 -38 70 -65 0
+                                                            -27 -7 -33 -70 -65 -38 -19 -74 -35 -80 -35 -5 0 -10 14 -10 31 0 26 5 33 40
+                                                            46 22 9 40 19 40 23 0 4 -18 14 -40 23 -35 13 -40 20 -40 46 0 17 5 31 10 31
+                                                            6 0 42 -16 80 -35z"/>
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <h5 class="box_title">Back-End</h5>
+                                            <p class="box_content">Java 기반 백엔드 구조 이해를 바탕으로 한 API 연동 및 데이터 흐름 처리</p>
+                                            <ul class="skill_level_list">
+                                                <li class="skill_level" data-skill="85">
+                                                    <div class="skill_header">
+                                                        <p class="name">Java</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="85">
+                                                    <div class="skill_header">
+                                                        <p class="name">SpringBoot</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="90">
+                                                    <div class="skill_header">
+                                                        <p class="name">SSR (JSP/Thymeleaf)</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="90">
+                                                    <div class="skill_header">
+                                                        <p class="name">JPA</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="swiper-slide skill_box database_box">
+                                            <div class="box_icon">
+                                                <i>
+                                                    <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill="currentColor" d="M10.025 8.75C12.8133 8.75 15.1767 8.32417 17.115 7.4725C19.0542 6.62167 20.0237 5.58875 20.0237 4.37375C20.0237 3.15875 19.0542 2.12583 17.115 1.275C15.1758 0.424168 12.8125 -0.00083211 10.025 1.22309e-06C7.2375 0.000834556 4.86958 0.425835 2.92125 1.275C0.972917 2.12417 -0.000832799 3.1575 5.34416e-07 4.375C0.000833868 5.5925 0.974584 6.625 2.92125 7.4725C4.86792 8.32 7.23542 8.74542 10.0238 8.74875M10 10.6725C11.0142 10.6725 12.0458 10.5917 13.095 10.43C14.1442 10.2692 15.13 10.0308 16.0525 9.715C16.975 9.39917 17.7875 9.00792 18.49 8.54125C19.1925 8.07458 19.7037 7.535 20.0237 6.9225V10.6238C19.7037 11.2363 19.1925 11.7758 18.49 12.2425C17.7883 12.71 16.9758 13.1017 16.0525 13.4175C15.13 13.7333 14.1442 13.9717 13.095 14.1325C12.0458 14.2933 11.0142 14.3738 10 14.3738C8.98583 14.3738 7.95417 14.2933 6.905 14.1325C5.85583 13.9717 4.87375 13.7333 3.95875 13.4175C3.04375 13.1017 2.23542 12.71 1.53375 12.2425C0.832084 11.775 0.320834 11.2358 5.34416e-07 10.625V6.9225C0.320001 7.53417 0.831251 8.07375 1.53375 8.54125C2.23542 9.00792 3.04375 9.39958 3.95875 9.71625C4.87375 10.0313 5.85583 10.2696 6.905 10.4313C7.95417 10.5929 8.98583 10.6733 10 10.6725ZM10 16.2975C11.0142 16.2975 12.0458 16.2171 13.095 16.0563C14.1433 15.8946 15.1292 15.6558 16.0525 15.34C16.9758 15.0242 17.7883 14.6329 18.49 14.1663C19.1917 13.6996 19.7029 13.16 20.0237 12.5475V16.225C19.7037 16.8375 19.1925 17.3771 18.49 17.8438C17.7883 18.3104 16.9758 18.7021 16.0525 19.0188C15.13 19.3346 14.1442 19.5729 13.095 19.7338C12.0458 19.8946 11.0142 19.975 10 19.975C8.98583 19.975 7.95417 19.8946 6.905 19.7338C5.85583 19.5729 4.87375 19.3346 3.95875 19.0188C3.04375 18.7029 2.23542 18.3113 1.53375 17.8438C0.832084 17.3763 0.320834 16.8367 5.34416e-07 16.225V12.5475C0.320834 13.1592 0.832084 13.6988 1.53375 14.1663C2.23542 14.6338 3.04375 15.0254 3.95875 15.3413C4.87375 15.6571 5.85583 15.8954 6.905 16.0563C7.95417 16.2171 8.98583 16.2975 10 16.2975Z"/>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <h5 class="box_title">Database</h5>
+                                            <p class="box_content">데이터베이스 구조 이해를 바탕으로 한 데이터 설계 및 서비스 연계</p>
+                                            <ul class="skill_level_list">
+                                                <li class="skill_level" data-skill="85">
+                                                    <div class="skill_header">
+                                                        <p class="name">MySQL</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="skill_level" data-skill="85">
+                                                    <div class="skill_header">
+                                                        <p class="name">MongoDB</p>
+                                                        <p class="per"></p>
+                                                    </div>
+                                                    <div class="skill_bar_wrap">
+                                                        <div class="skill_bar"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                        <div class="skills_box_area skills_simple_area">
+                            <div class="box_area_inner">
+                                <ul class="skills_box_list common_trans_attr">
+                                    <li class="skill_box">
+                                        <div class="box_icon">
+                                            <i>
+                                                <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_1842_4058)">
+                                                        <path d="M9.375 29.0625H20.625M0.9375 18.75H29.0625M21.5625 10.3125L20.595 6.51253C20.5283 6.25692 20.3782 6.03087 20.1686 5.87013C19.9589 5.70938 19.7017 5.62314 19.4375 5.62503H16.79C16.79 6.09977 16.6014 6.55506 16.2657 6.89075C15.93 7.22644 15.4747 7.41503 15 7.41503C14.5253 7.41503 14.07 7.22644 13.7343 6.89075C13.3986 6.55506 13.21 6.09977 13.21 5.62503H10.5625C10.2983 5.62314 10.0411 5.70938 9.83143 5.87013C9.62179 6.03087 9.47173 6.25692 9.405 6.51253L8.4375 10.3125H11.25V15H18.75V10.3125H21.5625Z" stroke="url(#paint0_linear_1842_4058)" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M15 29.0625V23.4375M2.8125 0.9375H27.1875C27.1875 0.9375 29.0625 0.9375 29.0625 2.8125V21.5625C29.0625 21.5625 29.0625 23.4375 27.1875 23.4375H2.8125C2.8125 23.4375 0.9375 23.4375 0.9375 21.5625V2.8125C0.9375 2.8125 0.9375 0.9375 2.8125 0.9375Z" stroke="url(#paint1_linear_1842_4058)" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                        <linearGradient id="paint0_linear_1842_4058" x1="15" y1="5.625" x2="15" y2="29.0625" gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#FCC013"/>
+                                                            <stop offset="1" stop-color="#EA4A3B"/>
+                                                        </linearGradient>
+                                                        <linearGradient id="paint1_linear_1842_4058" x1="15" y1="0.9375" x2="15" y2="29.0625" gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#FCC013"/>
+                                                            <stop offset="1" stop-color="#EA4A3B"/>
+                                                        </linearGradient>
+                                                        <clipPath id="clip0_1842_4058">
+                                                            <rect width="30" height="30" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </i>
+                                        </div>
+                                        <p class="box_name">E-commerce Platform</p>
+                                    </li>
+                                    <li class="skill_box">
+                                        <div class="box_icon">
+                                            <i>
+                                                <svg viewBox="0 0 30 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M23.05 0.68794C22.2042 2.14461 21.3592 3.60211 20.515 5.06044C20.4692 5.04127 20.4229 5.02336 20.3763 5.00669C16.8789 3.6781 13.0133 3.69279 9.52625 5.04794C9.42125 4.86044 7.335 1.27169 7 0.68919C6.95086 0.603327 6.89169 0.523602 6.82375 0.451689C6.59335 0.203722 6.27985 0.0490794 5.94288 0.0171704C5.6059 -0.0147386 5.26895 0.078312 4.9961 0.278626C4.72326 0.47894 4.53355 0.772546 4.46305 1.10361C4.39255 1.43467 4.44618 1.78009 4.61375 2.07419C7.0475 6.28669 4.49375 1.80419 7.04875 6.27419C7.07 6.31169 6.43 6.60294 5.3075 7.54544C3.625 8.95919 0.565 12.2042 0 17.4767H30C29.8639 16.1621 29.5502 14.872 29.0675 13.6417C28.3025 11.6789 27.1359 9.89748 25.6425 8.41169C24.8373 7.61016 23.9437 6.90271 22.9787 6.30294C23.8037 4.90044 24.6187 3.48294 25.435 2.07169C25.5576 1.8584 25.6213 1.61635 25.6195 1.37034C25.6178 1.12433 25.5506 0.883208 25.425 0.67169C25.313 0.484251 25.158 0.326171 24.9728 0.210531C24.7876 0.0948918 24.5776 0.0250171 24.36 0.00668954C23.7075 -0.0608105 23.1862 0.39794 23.0487 0.68794M22.9988 11.2629C23.4925 12.0042 23.4038 12.9267 22.8038 13.3254C22.2038 13.7254 21.3187 13.4504 20.8262 12.7092C20.3337 11.9679 20.4212 11.0467 21.0212 10.6467C21.6125 10.2517 22.4988 10.5092 22.9988 11.2642M9.0075 10.6492C9.6075 11.0492 9.695 11.9717 9.2025 12.7117C8.71 13.4529 7.82375 13.7304 7.2225 13.3304C6.6225 12.9304 6.535 12.0079 7.0275 11.2679C7.5275 10.5142 8.41375 10.2542 9.0075 10.6492Z" fill="#3EDC84"/>
+                                                </svg>
+                                            </i>
+                                        </div>
+                                        <p class="box_name">Hybrid App</p>
+                                    </li>
+                                    <li class="skill_box">
+                                        <div class="box_icon">
+                                            <i>
+                                                <svg width="50" viewBox="0 0 30 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.42843 11.7856L1.07129 6.42843L6.42843 1.07129M23.5713 11.7856L28.9284 6.42843L23.5713 1.07129M14.9999 6.96415C14.8578 6.96415 14.7215 6.90771 14.6211 6.80724C14.5206 6.70677 14.4641 6.57051 14.4641 6.42843C14.4641 6.28635 14.5206 6.15009 14.6211 6.04962C14.7215 5.94916 14.8578 5.89272 14.9999 5.89272C15.1419 5.89272 15.2782 5.94916 15.3787 6.04962C15.4791 6.15009 15.5356 6.28635 15.5356 6.42843C15.5356 6.57051 15.4791 6.70677 15.3787 6.80724C15.2782 6.90771 15.1419 6.96415 14.9999 6.96415ZM20.357 6.96415C20.2149 6.96415 20.0787 6.90771 19.9782 6.80724C19.8777 6.70677 19.8213 6.57051 19.8213 6.42843C19.8213 6.28635 19.8777 6.15009 19.9782 6.04962C20.0787 5.94916 20.2149 5.89272 20.357 5.89272C20.4991 5.89272 20.6353 5.94916 20.7358 6.04962C20.8363 6.15009 20.8927 6.28635 20.8927 6.42843C20.8927 6.57051 20.8363 6.70677 20.7358 6.80724C20.6353 6.90771 20.4991 6.96415 20.357 6.96415ZM9.64272 6.96415C9.50064 6.96415 9.36438 6.90771 9.26391 6.80724C9.16344 6.70677 9.107 6.57051 9.107 6.42843C9.107 6.28635 9.16344 6.15009 9.26391 6.04962C9.36438 5.94916 9.50064 5.89272 9.64272 5.89272C9.7848 5.89272 9.92106 5.94916 10.0215 6.04962C10.122 6.15009 10.1784 6.28635 10.1784 6.42843C10.1784 6.57051 10.122 6.70677 10.0215 6.80724C9.92106 6.90771 9.7848 6.96415 9.64272 6.96415Z" stroke="url(#paint0_linear_1838_4075)" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <defs>
+                                                        <linearGradient id="paint0_linear_1838_4075" x1="1.07129" y1="6.42843" x2="28.9284" y2="6.42843" gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#22D3EE"/>
+                                                            <stop offset="1" stop-color="#A855F7"/>
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+                                            </i>
+                                        </div>
+                                        <p class="box_name">Device Communication</p>
+                                    </li>
+                                    <li class="skill_box">
+                                        <div class="box_icon">
+                                            <i>
+                                                <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M29.2397 12.0425L29.1982 11.9365L25.1885 1.47214C25.1069 1.26701 24.9624 1.09299 24.7758 0.975028C24.5891 0.859055 24.3713 0.803183 24.1518 0.814961C23.9324 0.826739 23.7218 0.9056 23.5486 1.04089C23.3775 1.18024 23.2533 1.36872 23.1928 1.58089L20.4855 9.86417H9.52265L6.81515 1.58089C6.75629 1.36756 6.63182 1.17816 6.45937 1.03948C6.28616 0.904193 6.07559 0.825333 5.85613 0.813555C5.63666 0.801777 5.41887 0.857649 5.23218 0.973622C5.04598 1.09207 4.90163 1.26593 4.81944 1.47073L0.802256 11.9304L0.762412 12.0364C-0.423291 15.1346 0.583584 18.6439 3.23202 20.6417L3.24585 20.6524L3.28265 20.6785L9.39069 25.2525L12.4125 27.5396L14.2533 28.9294C14.4686 29.093 14.7315 29.1815 15.0019 29.1815C15.2722 29.1815 15.5352 29.093 15.7505 28.9294L17.5912 27.5396L20.613 25.2525L26.7579 20.6508L26.7731 20.6386C29.4152 18.6403 30.4205 15.1374 29.2397 12.0425Z" fill="#E24329"/>
+                                                    <path d="M29.2395 12.0425L29.198 11.9365C27.2442 12.3376 25.4031 13.1652 23.8062 14.3602L15 21.019C17.9988 23.2878 20.6095 25.2589 20.6095 25.2589L26.7544 20.6571L26.7696 20.645C29.4159 18.6464 30.4226 15.14 29.2395 12.0425Z" fill="#FC6D26"/>
+                                                    <path d="M9.39062 25.2589L12.4124 27.5459L14.2532 28.9358C14.4685 29.0993 14.7314 29.1879 15.0018 29.1879C15.2722 29.1879 15.5351 29.0993 15.7504 28.9358L17.5912 27.5459L20.613 25.2589C20.613 25.2589 17.9992 23.2817 15.0004 21.019C13.1293 22.4308 11.2594 23.8441 9.39062 25.2589Z" fill="#FCA326"/>
+                                                    <path d="M6.19241 14.3604C4.5969 13.1628 2.7562 12.3331 0.802256 11.9307L0.762412 12.0366C-0.423291 15.1348 0.583584 18.6441 3.23202 20.6419L3.24585 20.6527L3.28265 20.6787L9.39069 25.2528L15.0002 21.0129L6.19241 14.3604Z" fill="#FC6D26"/>
+                                                </svg>
+                                            </i>
+                                        </div>
+                                        <p class="box_name">GitLab</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
