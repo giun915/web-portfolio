@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
         recordHistory: true,
         lockAnchors: false,
         autoScrolling: true,
+        /*
+        responsiveWidth: 1024,
+        fitToSection: true,
+        */
         afterRender: function () {
             const $nav = $('#fp-nav');
             const $p = $('#footer p');
@@ -42,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#file").on('change', function () {
         $(".file_name").val($(this).val());
     });
+
 });
 
 // 섹션 별 공통 함수
@@ -106,4 +111,16 @@ function initSkillSection(index) {
     });
 }
 
+function projectDetailView(obj){
+    $('.portfolio_detail_area').addClass('on');
+}
 
+document.addEventListener('click', function (e) {
+    const slide = e.target.closest('.projectSlide .swiper-slide');
+    if (!slide) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    projectDetailView(slide);
+});

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     slidesPerView: 3,
     spaceBetween: 32,
-    mousewheel: false,
+    mousewheel: true,
   });
 
   const projectSlide = new Swiper('.projectSlide', {
