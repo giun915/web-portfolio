@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
             initSkillSection(index);
         }
     });
+
+    $("#file").on('change', function () {
+        $(".file_name").val($(this).val());
+    });
 });
 
 // 섹션 별 공통 함수
