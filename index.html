@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>웹개발 포트폴리오</title>
         <link rel="stylesheet" href="assets/css/lib/swiper.min.css" type="text/css">
-        <link rel="stylesheet" href="assets/css/lib/jquery.fullpage.min.css" type="text/css">
         <link rel="stylesheet" href="assets/css/default.css" type="text/css">
         <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
         <link rel="stylesheet" href="assets/css/animation.css" type="text/css">
@@ -20,36 +19,36 @@
         <meta property="og:image" content="https://lumicode.kr/imgs/main_display.png" />
         <script src="assets/js/lib/jquery.min.js"></script>
         <script src="assets/js/lib/swiper.min.js"></script>
-        <script src="assets/js/lib/fullpage.js"></script>
+        <script src="assets/js/swiper.init.js"></script>
+        <script src="assets/js/swiper.wheel.js"></script>
         <script src="assets/js/layout.js"></script>
-        <script src="assets/js/slide.js"></script>
     </head>
     <body>
-        <div id="wrap">
-            <header id="header">
-                <div class="page_inner">
-                    <h3 class="logo">WEB <span>PORTFOLIO</span></h3>
-                    <ul class="gnb_wrap">
-                        <li class="gnb gnb_1 on">
-                            <a href="#intro" data-menuanchor="intro">INTRO</a>
-                        </li>
-                        <li class="gnb gnb_2">
-                            <a href="#about" data-menuanchor="about">ABOUT</a>
-                        </li>
-                        <li class="gnb gnb_3">
-                            <a href="#skills" data-menuanchor="skills">SKILLS</a>
-                        </li>
-                        <li class="gnb gnb_4">
-                            <a href="#project" data-menuanchor="project">PROJECT</a>
-                        </li>
-                        <li class="gnb gnb_5">
-                            <a href="#contact" data-menuanchor="contact">CONTACT</a>
-                        </li>
-                    </ul>
-                </div>
-            </header>
-            <div id="fullpage">
-                <section class="section section_1 intro_section" data-anchor="intro">
+        <header id="header">
+            <div class="page_inner">
+                <h3 class="logo">WEB <span>PORTFOLIO</span></h3>
+                <ul class="gnb_wrap">
+                    <li class="gnb gnb_1 on">
+                        <a href="#intro">INTRO</a>
+                    </li>
+                    <li class="gnb gnb_2">
+                        <a href="#about">ABOUT</a>
+                    </li>
+                    <li class="gnb gnb_3">
+                        <a href="#skills">SKILLS</a>
+                    </li>
+                    <li class="gnb gnb_4">
+                        <a href="#project">PROJECT</a>
+                    </li>
+                    <li class="gnb gnb_5">
+                        <a href="#contact">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main id="pullPageSlide" class="swiper pullPageSlide">
+            <div class="swiper-wrapper">
+                <section class="swiper-slide section_slide section_slide_1 intro_section" data-anchor="intro">
                     <h4 class="blind">인트로 섹션</h4>
                     <div class="bg_wrap">
                         <div class="bg_circle left_circle"></div>
@@ -81,7 +80,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section section_2 about_section" data-anchor="about">
+                <section class="swiper-slide section_slide section_slide_2 about_section" data-anchor="about">
                     <h4 class="blind">어바웃 섹션</h4>
                     <div class="page_inner">
                         <div class="about_description_area">
@@ -171,7 +170,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section section_3 skills_section" data-anchor="skills">
+                <section class="swiper-slide section_slide section_slide_3 skills_section" data-anchor="skills">
                     <h4 class="blind">스킬 섹션</h4>
                     <div class="page_inner">
                         <div class="section_title_area">
@@ -453,7 +452,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section section_4 projects_section" data-anchor="project">
+                <section class="swiper-slide section_slide section_slide_4 projects_section" data-anchor="project">
                     <h4 class="blind">프로젝트 섹션</h4>
                     <div class="page_inner">
                         <div class="section_title_area">
@@ -717,7 +716,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section section_5 contact_section" data-anchor="contact">
+                <section class="swiper-slide section_slide section_slide_5 contact_section" data-anchor="contact">
                     <h4 class="blind">컨택트 섹션</h4>
                     <div class="page_inner">
                         <div class="section_title_area">
@@ -819,12 +818,13 @@
                     </div>
                 </section>
             </div>
-            <footer id="footer">
-                <div class="page_inner">
-                    <p>© 2025 WEB DEVELOPER. All rights reserved.</p>
-                </div>
-            </footer>
-        </div>
+            <div class="swiper-pagination">
+        </main>
+        <footer id="footer">
+            <div class="page_inner">
+                <p>© 2025 WEB DEVELOPER. All rights reserved.</p>
+            </div>
+        </footer>
         <section class="portfolio_detail_area">
             <div class="portfolio_detail_bg"></div>
             <div class="portfolio_detail_box" id="portfolioDetail">

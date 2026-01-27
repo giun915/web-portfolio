@@ -1,126 +1,151 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', () => {
 
-    $('#fullpage').fullpage({
-        anchors: ['intro', 'about', 'skills', 'project', 'contact'],
-        menu: "#header .gnb_wrap",
-        navigation: true,
-        normalScrollElements: '.has_scroll:not(.no_slide), .skill_level_list',
-        recordHistory: true,
-        lockAnchors: false,
-        autoScrolling: true,
-        /*
-        responsiveWidth: 1024,
-        fitToSection: true,
-        */
-        afterRender: function () {
-            const $nav = $('#fp-nav');
-            const $p = $('#footer p');
+    let skillInitDone = false;  
 
-            if ($nav.length && $p.length) {
-                $p.after($nav);
-            }
-        },
+    /* ==============================
+    * Swiper 초기화
+    * ============================== */
+    const swipers = initSwipers();
 
-        onLeave: function (index) {
-            $('#header .gnb_wrap .gnb').removeClass('on');
-            $('.section').removeClass('on');
+    /* 수평 휠 제어 바인딩 */
+    bindHorizontalWheelControl({
+        pullPage: swipers.pullPage,
+        swiper: swipers.skill,
+        selector: '.skillSlide',
+    });
 
-            if (index === 1) {
-                $(".section_1 .intro_txt_kr").removeClass("on");
-            }
-        },
+    bindHorizontalWheelControl({
+        pullPage: swipers.pullPage,
+        swiper: swipers.project,
+        selector: '.projectSlide',
+        includeChildren: true,
+    });
 
-        afterLoad: function (origin, index, direction) {
+    /* ==============================
+    * 최초 진입 상태
+    * ============================== */
+    const startIndex = swipers.pullPage.activeIndex || 0;
+    activateSection(startIndex);
+    updateMenu(startIndex);
+    initIntroSection(startIndex);
+    initSkillSection(startIndex);
 
-            // 1. 공통
-            activateSection(index);
+    /* ==============================
+    * pagination footer 이동
+    * ============================== */
+    movePaginationToFooter(swipers.pullPage);
 
-            // 2. intro 전용
-            initIntroSection(index);
+    /* ==============================
+    * 메뉴 클릭 이동
+    * ============================== */
+    document.querySelectorAll('#header .gnb_wrap a')
+        .forEach((a, index) => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            swipers.pullPage.slideTo(index);
+        });
+    });
 
-            // 3. skills 전용
-            initSkillSection(index);
+    /* ==============================
+    * 슬라이드 변경 이벤트
+    * ============================== */
+    swipers.pullPage.on('slideChange', function () {
+        updateMenu(this.activeIndex);
+        activateSection(this.activeIndex);
+        initIntroSection(this.activeIndex);
+        initSkillSection(this.activeIndex);
+    });
+
+    /* ==============================
+    * UI 함수
+    * ============================== */
+    function movePaginationToFooter(swiper) {
+        const pagination = swiper.pagination.el;
+        const target = document.querySelector('#footer .page_inner > p');
+        if (pagination && target) {
+        target.insertAdjacentElement('afterend', pagination);
         }
+    }
+
+    function updateMenu(index) {
+        document.querySelectorAll('#header .gnb_wrap .gnb')
+        .forEach((li, i) => li.classList.toggle('on', i === index));
+    }
+
+    function activateSection(index) {
+        document.querySelectorAll('.section_slide')
+        .forEach((sec, i) => sec.classList.toggle('on', i === index));
+    }
+
+    function initIntroSection(index) {
+        const el = document.querySelector(".section_slide_1 .intro_txt_kr");
+        if (!el) return;
+
+        if (index !== 0) {
+        el.classList.remove('on');
+        return;
+        }
+
+        const text = el.textContent.trim();
+        el.dataset.text = text;
+        el.style.setProperty("--steps", text.length);
+
+        setTimeout(() => el.classList.add("on"), 1000);
+    }
+
+    function initSkillSection(index) {
+        if (index !== 2) return;
+
+        document.querySelectorAll('.skill_level_list').forEach(el => {
+            const hasScroll = el.scrollHeight > el.clientHeight;
+            el.classList.toggle('has_scroll', hasScroll);
+        });
+
+        bindInnerScrollLock();
+
+        animateSkillBars();
+    }
+
+    function animateSkillBars() {
+        document.querySelectorAll('.skill_level').forEach(item => {
+            const percent = item.dataset.skill;
+            const bar = item.querySelector('.skill_bar');
+            const text = item.querySelector('.per');
+
+            if (!percent || !bar || !text) return;
+
+            bar.style.transition = 'none';
+            bar.style.width = '0%';
+            text.textContent = '0%';
+
+            bar.offsetHeight;
+
+            requestAnimationFrame(() => {
+                bar.style.width = percent + '%';
+                text.textContent = percent + '%';
+            });
+        });
+    }
+
+    /* ==============================
+    * Project 상세 보기
+    * ============================== */
+
+    function openProjectDetail(slide) {
+        const detail = document.querySelector('.portfolio_detail_area');
+        if (!detail) return;
+
+        detail.classList.add('on');
+    }
+
+    document.addEventListener('click', e => {
+        const slide = e.target.closest('.projectSlide .swiper-slide');
+        if (!slide) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        openProjectDetail(slide);
     });
 
-    $("#file").on('change', function () {
-        $(".file_name").val($(this).val());
-    });
-
-});
-
-// 섹션 별 공통 함수
-function activateSection(index) {
-    $('#header .gnb_wrap .gnb_' + index).addClass('on');
-    $('.section_' + index).addClass('on');
-}
-
-// intro 초기화
-function initIntroSection(index) {
-    if (index !== 1) return;
-
-    setSubIntroText();
-
-    setTimeout(function () {
-        $(".section_1 .intro_txt_kr").addClass("on");
-    }, 1000);
-}
-
-
-// intro 한글 텍스트 글자 계산
-function setSubIntroText(){
-    const el = document.querySelector(".section_1 .intro_txt_kr");
-    if (!el) return;
-
-    // data-text 속성 자동 설정 (HTML 안 문구 그대로)
-    const textContent = el.textContent.trim();
-    el.setAttribute("data-text", textContent);
-
-    // 글자 수 계산 후 steps() 값 자동 지정
-    const textLength = textContent.length;
-    el.style.setProperty("--steps", textLength);
-}
-
-// 스킬 섹션 퍼센트 채우기
-let skillInitDone = false;
-
-function initSkillSection(index) {
-    if (index !== 3 || skillInitDone) return;
-
-    document.querySelectorAll('.skill_level').forEach(item => {
-        const percent = item.dataset.skill;
-        const bar = item.querySelector('.skill_bar');
-        const text = item.querySelector('.per');
-
-        if (!percent || !bar || !text) return;
-
-        text.textContent = percent + '%';
-        
-        setTimeout(function () {
-            bar.style.width = percent + '%';
-        }, 1000);
-
-        item.setAttribute('aria-valuenow', percent);
-    });
-
-    skillInitDone = true;
-
-    document.querySelectorAll('.skill_level_list').forEach(el => {
-        const hasScroll = el.scrollHeight > el.clientHeight;
-        el.classList.toggle('has_scroll', hasScroll);
-    });
-}
-
-function projectDetailView(obj){
-    $('.portfolio_detail_area').addClass('on');
-}
-
-document.addEventListener('click', function (e) {
-    const slide = e.target.closest('.projectSlide .swiper-slide');
-    if (!slide) return;
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    projectDetailView(slide);
 });

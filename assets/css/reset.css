@@ -3,7 +3,7 @@
 @import url('https://rsms.me/inter/inter.css');
 
 /****************css초기화****************/
-
+html, body {position: relative; height: 100%;}
 body { margin: 0; font-family: 'Inter', sans-serif; color: var(--basic-color); font-size: 14px; font-weight: 500; -ms-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; user-select: none; -webkit-box-sizing:border-box ; 
 -moz-box-sizing:border-box ; -o-box-sizing:border-box ; -ms-box-sizing:border-box ; box-sizing:border-box; }
 html, body, div, span, applet, object, iframe,
