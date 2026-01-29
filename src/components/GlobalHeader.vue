@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { gnbList } from '@/constants/gnbMenu'
 
-const activeIndex = ref(1)
+defineProps<{
+  activeIndex: number
+  goToSlide: (id: number) => void
+}>()
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const activeIndex = ref(1)
           class="gnb"
           :class="[gnb.className, activeIndex === gnb.id ? 'on' : '']"
         >
-          <a :href="gnb.anchor">
+          <a href="#" @click.prevent="goToSlide(gnb.id)">
             {{ gnb.label }}
           </a>
         </li>
