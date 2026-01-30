@@ -3,11 +3,11 @@ import { ref, onMounted, nextTick } from 'vue'
 import Swiper from 'swiper'
 import { Mousewheel, Pagination } from 'swiper/modules'
 
-import GlobalHeader from '@/components/GlobalHeader.vue'
-import GlobalFooter from '@/components/GlobalFooter.vue'
+import GlobalHeader from '@/components/layout/GlobalHeader.vue'
+import GlobalFooter from '@/components/layout/GlobalFooter.vue'
 
-import IntroView from './IntroView.vue'
-import AboutView from './AboutView.vue'
+import IntroView from './intro/IntroView.vue'
+import AboutView from './about/AboutView.vue'
 import SkillView from './SkillView.vue'
 import ProjectView from './ProjectView.vue'
 import ContactView from './ContactView.vue'
@@ -24,6 +24,8 @@ const goToSlide = (id: number) => {
 const footerRef = ref<InstanceType<typeof GlobalFooter> | null>(null)
 
 const sectionEls = ref<HTMLElement[]>([])
+
+const anchors = ref<string[]>([])
 
 onMounted(() => {
   pullPage.value = new Swiper('.pullPageSlide', {
@@ -45,30 +47,38 @@ onMounted(() => {
 
     on: {
       async init(swiper) {
-        // 🔹 DOM 안정화 (Footer ref / pagination 생성 보장)
+        // DOM 안정화 (Footer ref / pagination 생성 보장)
         await nextTick()
 
+        // Footer pagination 이동
         const target = footerRef.value?.footerPagination
         const paginationEl = swiper.pagination?.el
+        if (target && paginationEl) target.appendChild(paginationEl)
 
-        if (target && paginationEl) {
-          target.appendChild(paginationEl)
-        }
+        // 슬라이드와 anchor 자동 수집
+        const slides = Array.from(
+          document.querySelectorAll<HTMLElement>('.pullPageSlide .swiper-slide'),
+        )
+        sectionEls.value = slides
+        anchors.value = slides.map((el) => el.dataset.anchor || '')
 
-        sectionEls.value = Array.from(
-          document.querySelectorAll('.pullPageSlide .swiper-slide'),
-        ) as HTMLElement[]
+        // hash 기반 초기 이동
+        const hash = window.location.hash.replace('#', '')
+        const initIndex = anchors.value.indexOf(hash)
+        if (initIndex !== -1) swiper.slideTo(initIndex, 0)
 
-        // 2️⃣ 최초 섹션 on 처리
         updateSection(swiper.activeIndex)
       },
 
       slideChange(swiper) {
-        // 3️⃣ header / 메뉴 activeIndex 동기화
+        // header / 메뉴 activeIndex 동기화
         activeIndex.value = swiper.activeIndex + 1
 
-        // 4️⃣ 섹션 on 토글
+        // 섹션 on 토글
         updateSection(swiper.activeIndex)
+
+        const anchor = anchors.value[swiper.activeIndex]
+        if (anchor) history.replaceState(null, '', `#${anchor}`)
       },
     },
   })
@@ -88,6 +98,9 @@ const updateSection = (index: number) => {
     <div class="swiper-wrapper">
       <section class="swiper-slide section_slide section_slide_1 intro_section" data-anchor="intro">
         <IntroView :active="activeIndex === 1" />
+      </section>
+      <section class="swiper-slide section_slide section_slide_2 about_section" data-anchor="about">
+        <AboutView />
       </section>
     </div>
     <div class="swiper-pagination"></div>
