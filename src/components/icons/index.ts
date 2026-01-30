@@ -1,0 +1,6 @@
+export { default as IconLinkedIn } from './IconLinkedIn.vue'
+export { default as IconResume } from './IconResume.vue'
+export { default as IconContact } from './IconContact.vue'
+export { default as IconEducation } from './IconEducation.vue'
+export { default as IconExperience } from './IconExperience.vue'
+export { default as IconProject } from './IconProject.vue'
