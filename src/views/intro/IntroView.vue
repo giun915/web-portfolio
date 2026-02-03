@@ -80,7 +80,7 @@ watch(
 
 <style scoped>
 /* intro */
-.intro_section .bg_wrap {
+.bg_wrap {
   position: absolute;
   top: 0;
   left: 0;
@@ -91,34 +91,34 @@ watch(
   visibility: hidden;
   transition: all 0.4s ease;
 }
-.intro_section.on .bg_wrap {
+.swiper-slide-active .bg_wrap {
   opacity: 0.2;
   visibility: visible;
 }
-.intro_section .bg_circle {
+.bg_circle {
   position: absolute;
   width: 24rem;
   height: 24rem;
   border-radius: 50%;
   filter: blur(4rem);
 }
-.intro_section .left_circle {
+.left_circle {
   top: 8rem;
   left: 5rem;
   background-color: #06b6d4;
 }
-.intro_section .right_circle {
+.right_circle {
   bottom: 5rem;
   right: 5rem;
   background-color: #a855f7;
 }
 
-.intro_section .badge_icon_wrap {
+.badge_icon_wrap {
   overflow: hidden;
   margin-bottom: 2rem;
   padding: 2px 0;
 }
-.intro_section .badge_icon_wrap .badge_icon {
+.badge_icon_wrap .badge_icon {
   color: var(--main-color);
   background-color: #22d3ee1a;
   padding: 0.6rem 1rem;
@@ -126,12 +126,12 @@ watch(
   border-radius: 9999px;
   box-sizing: border-box;
 }
-.intro_section .txt_area {
+.txt_area {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3.125rem;
 }
-.intro_section .txt_wrap {
+.txt_wrap {
   position: relative;
   display: flex;
   width: 100%;
@@ -141,22 +141,22 @@ watch(
   font-size: 4.5rem;
   font-weight: 700;
 }
-.intro_section .txt_wrap:last-child {
+.txt_wrap:last-child {
   margin-top: 1.875rem;
 }
-.intro_section .sub_intro_txt {
+.sub_intro_txt {
   background: linear-gradient(90deg, var(--main-color) 0%, var(--secondary-color) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
-.intro_section .intro_txt_kr {
+.intro_txt_kr {
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--gray-color);
 }
-.intro_section.on .intro_txt_kr.on::after {
+.swiper-slide-active .intro_txt_kr.on::after {
   content: attr(data-text);
   position: absolute;
   left: 0;
@@ -172,27 +172,27 @@ watch(
   animation: colorReveal 3s steps(var(--steps)) forwards;
 }
 
-.intro_section .button_wrap {
+.button_wrap {
   display: flex;
   margin-bottom: 5rem;
   gap: 1.25rem;
   overflow: hidden;
 }
-.intro_section .button_wrap a {
+.button_wrap a {
   padding: 1rem 2rem;
   font-weight: 600;
   border-radius: 0.5rem;
   transition: all 0.4s ease;
 }
-.intro_section .button_wrap a:hover {
+.button_wrap a:hover {
   background-color: var(--main-color);
   color: #0a0a0a;
 }
-.intro_section .button_wrap .portfolio_btn {
+.button_wrap .portfolio_btn {
   background-color: #67e8f9;
   color: #0a0a0a;
 }
-.intro_section .button_wrap .contact_btn {
+.button_wrap .contact_btn {
   border: 1px solid var(--main-color);
   color: var(--main-color);
 }

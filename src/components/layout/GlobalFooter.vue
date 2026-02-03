@@ -12,3 +12,23 @@ defineExpose({ footerPagination })
     </div>
   </footer>
 </template>
+
+<style scoped>
+/* 푸터 */
+#footer {
+  position: fixed;
+  width: 100%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  bottom: 0;
+  border-top: 1px solid var(--border-color);
+  background-color: #0a0a0ae6;
+  z-index: 2;
+}
+.page_inner {
+  justify-content: space-between;
+}
+p {
+  color: var(--gray-color);
+}
+</style>
