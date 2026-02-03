@@ -42,51 +42,40 @@ import { IconLinkedIn, IconResume, IconContact } from '@/components/icons'
 </template>
 
 <style scoped>
-.about_section .about_description_wrap {
+.about_description_wrap {
   transition: all 1s ease;
   transform: translateX(-105%);
 }
-.about_section.on .about_description_wrap {
+.swiper-slide-active .about_description_wrap {
   transform: translateX(0);
 }
-
-.about_section .page_inner {
-  flex-direction: row;
-  gap: 4rem;
-}
-.about_section .page_inner > div {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  height: 100%;
-}
-.about_section .about_description_area {
+.about_description_area {
   overflow: hidden;
 }
-.about_section .description_title {
+.description_title {
   font-weight: 700;
   font-size: 3rem;
   margin-bottom: 1.5rem;
 }
-.about_section .description_title span {
+.description_title span {
   color: var(--main-color);
 }
-.about_section .about_description {
+.about_description {
   /*height: 118px; overflow-y: auto; padding-right: 1rem;*/
   margin-bottom: 2rem;
 }
-.about_section .about_description p {
+.about_description p {
   margin-bottom: 1.5rem;
   color: var(--gray-color);
   font-size: 1.125rem;
   line-height: 1.25;
   word-break: keep-all;
 }
-.about_section .description_icon_wrap {
+.description_icon_wrap {
   display: flex;
   gap: 1.5rem;
 }
-.about_section .description_icon_wrap a {
+.description_icon_wrap a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,10 +85,8 @@ import { IconLinkedIn, IconResume, IconContact } from '@/components/icons'
   border: 1px solid #374151;
   transition: all 0.4s ease;
 }
-.about_section .description_icon_wrap a:hover {
+.description_icon_wrap a:hover {
   border-color: var(--main-color);
-}
-.about_section .description_icon_wrap a:hover path {
-  fill: var(--main-color);
+  color: var(--main-color);
 }
 </style>
