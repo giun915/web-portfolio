@@ -11,7 +11,7 @@ import GlobalFooter from '@/components/layout/GlobalFooter.vue'
 import IntroView from './intro/IntroView.vue'
 import AboutView from './about/AboutView.vue'
 import SkillsView from './skills/SkillsView.vue'
-import ProjectView from './ProjectView.vue'
+import ProjectView from './project/ProjectView.vue'
 import ContactView from './ContactView.vue'
 
 Swiper.use([Mousewheel, Pagination])
@@ -29,6 +29,7 @@ const anchors = ref<string[]>([])
 
 let fullPageSwiper: Swiper
 let skillSwiper: Swiper
+let projectSwiper: Swiper
 
 onMounted(() => {
   fullPageSwiper = new Swiper('.pullPageSlide', {
@@ -101,10 +102,32 @@ onMounted(() => {
     },
   })
 
+  projectSwiper = new Swiper('.projectSlide', {
+    direction: 'horizontal',
+    slidesPerView: 3,
+    spaceBetween: 32,
+    nested: true,
+
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+
+    mousewheel: false,
+    touchStartPreventDefault: false,
+  })
+
   bindHorizontalWheelControl({
     fullPage: fullPageSwiper,
     swiper: skillSwiper,
     selector: '.skillSlide',
+    includeChildren: true,
+  })
+
+  bindHorizontalWheelControl({
+    fullPage: fullPageSwiper,
+    swiper: projectSwiper,
+    selector: '.projectSlide',
     includeChildren: true,
   })
 })
@@ -119,10 +142,13 @@ onMounted(() => {
         <IntroView :active="activeIndex === 0" />
       </section>
       <section class="swiper-slide section_slide about_section" data-anchor="about">
-        <AboutView />
+        <AboutView :active="activeIndex === 1" />
       </section>
       <section class="swiper-slide section_slide skills_section" data-anchor="skills">
         <SkillsView :active="activeIndex === 2" />
+      </section>
+      <section class="swiper-slide section_slide project_section" data-anchor="project">
+        <ProjectView :active="activeIndex === 3" />
       </section>
     </div>
     <div class="swiper-pagination"></div>
