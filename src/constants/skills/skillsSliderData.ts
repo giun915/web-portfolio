@@ -1,7 +1,4 @@
-import IconPublishing from '@/components/icons/skills/IconPublishing.vue'
-import IconFront from '@/components/icons/skills/IconFront.vue'
-import IconBack from '@/components/icons/skills/IconBack.vue'
-import IconDatabase from '@/components/icons/skills/IconDatabase.vue'
+import { IconPublishing, IconFront, IconBack, IconDatabase } from '@/components/icons'
 import type { Component } from 'vue'
 
 export type SkillLevel = {
