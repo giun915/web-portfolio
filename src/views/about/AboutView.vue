@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AboutDescription from './AboutDescription.vue'
 import AboutCard from './AboutCard.vue'
-import { IconEducation, IconExperience, IconProject } from '@/components/icons'
+import { aboutList } from '@/constants/about/aboutCardData'
 </script>
 
 <template>
@@ -12,14 +12,13 @@ import { IconEducation, IconExperience, IconProject } from '@/components/icons'
       <div class="about_card_wrap">
         <div class="about_card_bg"></div>
         <div class="card_item_wrap">
-          <AboutCard title="Education" content="컴퓨터공학 학사">
-            <IconEducation />
-          </AboutCard>
-          <AboutCard title="Experience" content="7+ Years">
-            <IconExperience />
-          </AboutCard>
-          <AboutCard title="Projects" content="30+ Completed">
-            <IconProject />
+          <AboutCard
+            v-for="(item, index) in aboutList"
+            :key="index"
+            :title="item.title"
+            :content="item.content"
+          >
+            <component :is="item.icon" />
           </AboutCard>
         </div>
       </div>
