@@ -9,12 +9,12 @@ import { projectDetailList } from '@/constants/project/projectDetailData'
 import GlobalHeader from '@/components/layout/GlobalHeader.vue'
 import GlobalFooter from '@/components/layout/GlobalFooter.vue'
 
-import IntroView from './intro/IntroView.vue'
-import AboutView from './about/AboutView.vue'
-import SkillsView from './skills/SkillsView.vue'
-import ProjectView from './project/ProjectView.vue'
+import IntroView from './IntroView.vue'
+import AboutView from './AboutView.vue'
+import SkillsView from './SkillsView.vue'
+import ProjectView from './ProjectView.vue'
 import ContactView from './ContactView.vue'
-import ProjectDetailPopup from './project/ProjectDetailPopup.vue'
+import ProjectDetailPopup from '@/components/project/ProjectDetailPopup.vue'
 
 Swiper.use([Mousewheel, Pagination])
 
@@ -150,18 +150,10 @@ const closeProject = () => {
 
   <main id="pullPageSlide" class="swiper pullPageSlide">
     <div class="swiper-wrapper">
-      <section class="swiper-slide section_slide intro_section" data-anchor="intro">
-        <IntroView :active="activeSectionIndex === 0" />
-      </section>
-      <section class="swiper-slide section_slide about_section" data-anchor="about">
-        <AboutView />
-      </section>
-      <section class="swiper-slide section_slide skills_section" data-anchor="skills">
-        <SkillsView />
-      </section>
-      <section class="swiper-slide section_slide project_section" data-anchor="project">
-        <ProjectView @open-project="openProject" />
-      </section>
+      <IntroView :active="activeSectionIndex === 0" />
+      <AboutView />
+      <SkillsView />
+      <ProjectView @open-project="openProject" />
     </div>
     <div class="swiper-pagination"></div>
   </main>

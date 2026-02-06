@@ -40,42 +40,44 @@ watch(
 </script>
 
 <template>
-  <h4 class="blind">인트로 섹션</h4>
-  <div class="bg_wrap">
-    <div class="bg_circle left_circle"></div>
-    <div class="bg_circle right_circle"></div>
-  </div>
-  <div class="page_inner">
-    <div class="badge_icon_wrap">
-      <div class="badge_icon common_trans_attr">WEB DEVELOPER</div>
+  <section class="swiper-slide section_slide intro_section" data-anchor="intro">
+    <h4 class="blind">인트로 섹션</h4>
+    <div class="bg_wrap">
+      <div class="bg_circle left_circle"></div>
+      <div class="bg_circle right_circle"></div>
     </div>
-    <div class="txt_area">
-      <div class="txt_wrap">
-        <h3 class="common_trans_attr intro_txt">User Centered</h3>
+    <div class="page_inner">
+      <div class="badge_icon_wrap">
+        <div class="badge_icon common_trans_attr">WEB DEVELOPER</div>
       </div>
-      <div class="txt_wrap">
-        <h4 class="common_trans_attr sub_intro_txt">Beautiful and Functional Web</h4>
+      <div class="txt_area">
+        <div class="txt_wrap">
+          <h3 class="common_trans_attr intro_txt">User Centered</h3>
+        </div>
+        <div class="txt_wrap">
+          <h4 class="common_trans_attr sub_intro_txt">Beautiful and Functional Web</h4>
+        </div>
+        <div class="txt_wrap">
+          <p ref="introTextEl" class="common_trans_attr intro_txt_kr">
+            사용자 경험을 최우선으로 생각하며, 아름답고 기능적인 웹사이트를 제작합니다.
+          </p>
+        </div>
       </div>
-      <div class="txt_wrap">
-        <p ref="introTextEl" class="common_trans_attr intro_txt_kr">
-          사용자 경험을 최우선으로 생각하며, 아름답고 기능적인 웹사이트를 제작합니다.
-        </p>
+      <div class="button_wrap">
+        <a class="portfolio_btn common_trans_attr" href="#project" data-menuanchor="portfolio"
+          >View Portfolio</a
+        >
+        <a class="contact_btn common_trans_attr" href="#contact" data-menuanchor="contact"
+          >Contact Me</a
+        >
+      </div>
+      <div class="common_mouse_icon_wrap">
+        <div class="mouse_icon common_trans_attr">
+          <i class="mouse_circle"></i>
+        </div>
       </div>
     </div>
-    <div class="button_wrap">
-      <a class="portfolio_btn common_trans_attr" href="#project" data-menuanchor="portfolio"
-        >View Portfolio</a
-      >
-      <a class="contact_btn common_trans_attr" href="#contact" data-menuanchor="contact"
-        >Contact Me</a
-      >
-    </div>
-    <div class="common_mouse_icon_wrap">
-      <div class="mouse_icon common_trans_attr">
-        <i class="mouse_circle"></i>
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

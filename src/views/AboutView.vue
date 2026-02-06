@@ -1,29 +1,31 @@
 <script setup lang="ts">
-import AboutDescription from './AboutDescription.vue'
-import AboutCard from './AboutCard.vue'
+import AboutDescription from '@/components/about/AboutDescription.vue'
+import AboutCard from '@/components/about/AboutCard.vue'
 import { aboutList } from '@/constants/about/aboutCardData'
 </script>
 
 <template>
-  <h4 class="blind">어바웃 섹션</h4>
-  <div class="page_inner">
-    <AboutDescription />
-    <div class="about_card_area">
-      <div class="about_card_wrap">
-        <div class="about_card_bg"></div>
-        <div class="card_item_wrap">
-          <AboutCard
-            v-for="(item, index) in aboutList"
-            :key="index"
-            :title="item.title"
-            :content="item.content"
-          >
-            <component :is="item.icon" />
-          </AboutCard>
+  <section class="swiper-slide section_slide about_section" data-anchor="about">
+    <h4 class="blind">어바웃 섹션</h4>
+    <div class="page_inner">
+      <AboutDescription />
+      <div class="about_card_area">
+        <div class="about_card_wrap">
+          <div class="about_card_bg"></div>
+          <div class="card_item_wrap">
+            <AboutCard
+              v-for="(item, index) in aboutList"
+              :key="index"
+              :title="item.title"
+              :content="item.content"
+            >
+              <component :is="item.icon" />
+            </AboutCard>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
