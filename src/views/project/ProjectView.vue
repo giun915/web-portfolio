@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import ProjectSlide from './ProjectSlide.vue'
 import { projectList } from '@/constants/project/projectListData'
+import ProjectSlide from './ProjectSlide.vue'
+
+const emit = defineEmits<{
+  (e: 'open-project', id: number): void
+}>()
 </script>
 
 <template>
@@ -17,7 +21,12 @@ import { projectList } from '@/constants/project/projectListData'
     <div class="slide_area">
       <div class="swiper projectSlide common_trans_attr">
         <ul class="swiper-wrapper">
-          <li v-for="project in projectList" :key="project.id" class="swiper-slide">
+          <li
+            v-for="(project, index) in projectList"
+            :key="project.id"
+            class="swiper-slide"
+            @click="emit('open-project', index)"
+          >
             <ProjectSlide :project="project" />
           </li>
         </ul>

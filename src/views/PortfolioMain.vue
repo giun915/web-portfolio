@@ -4,6 +4,7 @@ import Swiper from 'swiper'
 import { Mousewheel, Pagination } from 'swiper/modules'
 
 import { bindHorizontalWheelControl } from '@/utils/swiper/wheelControl'
+import { projectDetailList } from '@/constants/project/projectDetailData'
 
 import GlobalHeader from '@/components/layout/GlobalHeader.vue'
 import GlobalFooter from '@/components/layout/GlobalFooter.vue'
@@ -13,11 +14,12 @@ import AboutView from './about/AboutView.vue'
 import SkillsView from './skills/SkillsView.vue'
 import ProjectView from './project/ProjectView.vue'
 import ContactView from './ContactView.vue'
+import ProjectDetailPopup from './project/ProjectDetailPopup.vue'
 
 Swiper.use([Mousewheel, Pagination])
 
 const fullPage = ref<Swiper | null>(null)
-const activeIndex = ref(0)
+const activeSectionIndex = ref(0)
 
 const goToSlide = (id: number) => {
   fullPage.value?.slideTo(id)
@@ -80,7 +82,7 @@ onMounted(() => {
 
       slideChange(swiper) {
         // header / 메뉴 activeIndex 동기화
-        activeIndex.value = swiper.activeIndex
+        activeSectionIndex.value = swiper.activeIndex
 
         const anchor = anchors.value[swiper.activeIndex]
         if (anchor) history.replaceState(null, '', `#${anchor}`)
@@ -131,30 +133,50 @@ onMounted(() => {
     includeChildren: true,
   })
 })
+
+const activeProjectIndex = ref<number | null>(null)
+
+const openProject = (index: number) => {
+  activeProjectIndex.value = index
+}
+
+const closeProject = () => {
+  activeProjectIndex.value = null
+}
 </script>
 
 <template>
-  <GlobalHeader :activeIndex="activeIndex" :goToSlide="goToSlide" />
+  <GlobalHeader :activeIndex="activeSectionIndex" :goToSlide="goToSlide" />
 
   <main id="pullPageSlide" class="swiper pullPageSlide">
     <div class="swiper-wrapper">
       <section class="swiper-slide section_slide intro_section" data-anchor="intro">
-        <IntroView :active="activeIndex === 0" />
+        <IntroView :active="activeSectionIndex === 0" />
       </section>
       <section class="swiper-slide section_slide about_section" data-anchor="about">
-        <AboutView :active="activeIndex === 1" />
+        <AboutView />
       </section>
       <section class="swiper-slide section_slide skills_section" data-anchor="skills">
-        <SkillsView :active="activeIndex === 2" />
+        <SkillsView />
       </section>
       <section class="swiper-slide section_slide project_section" data-anchor="project">
-        <ProjectView :active="activeIndex === 3" />
+        <ProjectView @open-project="openProject" />
       </section>
     </div>
     <div class="swiper-pagination"></div>
   </main>
 
   <GlobalFooter ref="footerRef" />
+
+  <transition name="portfolio-detail">
+    <ProjectDetailPopup
+      v-if="activeProjectIndex !== null"
+      :projects="projectDetailList"
+      :current-index="activeProjectIndex"
+      @update:index="activeProjectIndex = $event"
+      @close="closeProject"
+    />
+  </transition>
 </template>
 
 <style scoped></style>

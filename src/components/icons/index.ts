@@ -19,3 +19,11 @@ export { default as IconCss } from './project/IconCss.vue'
 export { default as IconJs } from './project/IconJs.vue'
 export { default as IconResponsive } from './project/IconResponsive.vue'
 export { default as IconVue } from './project/IconVue.vue'
+
+export { default as IconDuration } from './project/IconDuration.vue'
+export { default as IconTechnology } from './project/IconTechnology.vue'
+export { default as IconRole } from './project/IconRole.vue'
+export { default as IconGallery } from './project/IconGallery.vue'
+
+export { default as IconArrowType1 } from './common/IconArrowType1.vue'
+export { default as IconXmark } from './common/IconXmark.vue'
