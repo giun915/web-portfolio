@@ -1,25 +1,27 @@
 <script setup lang="ts">
-import SkillsSimple from './SkillsSimple.vue'
-import SkillsSlider from './SkillsSlider.vue'
+import SkillsSimple from '@/components/skills/SkillsSimple.vue'
+import SkillsSlider from '@/components/skills/SkillsSlider.vue'
 defineProps<{
   active?: boolean
 }>()
 </script>
 
 <template>
-  <h4 class="blind">스킬 섹션</h4>
-  <div class="page_inner">
-    <div class="section_title_area">
-      <div class="section_title_wrap">
-        <h4 class="section_title">Technical <span>Skills</span></h4>
+  <section class="swiper-slide section_slide skills_section" data-anchor="skills">
+    <h4 class="blind">스킬 섹션</h4>
+    <div class="page_inner">
+      <div class="section_title_area">
+        <div class="section_title_wrap">
+          <h4 class="section_title">Technical <span>Skills</span></h4>
+        </div>
+        <div class="section_title_wrap section_sub_title_wrap">
+          <h4 class="section_title">전문적으로 다루는 기술 스택입니다</h4>
+        </div>
       </div>
-      <div class="section_title_wrap section_sub_title_wrap">
-        <h4 class="section_title">전문적으로 다루는 기술 스택입니다</h4>
-      </div>
+      <SkillsSlider />
+      <SkillsSimple />
     </div>
-    <SkillsSlider />
-    <SkillsSimple />
-  </div>
+  </section>
 </template>
 
 <style scoped>

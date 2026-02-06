@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { projectList } from '@/constants/project/projectListData'
-import ProjectSlide from './ProjectSlide.vue'
+import ProjectSlide from '@/components/project/ProjectSlide.vue'
 
 const emit = defineEmits<{
   (e: 'open-project', id: number): void
@@ -8,32 +8,34 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <h4 class="blind">프로젝트 섹션</h4>
-  <div class="page_inner">
-    <div class="section_title_area">
-      <div class="section_title_wrap">
-        <h4 class="section_title">Project <span>Works</span></h4>
+  <section class="swiper-slide section_slide project_section" data-anchor="project">
+    <h4 class="blind">프로젝트 섹션</h4>
+    <div class="page_inner">
+      <div class="section_title_area">
+        <div class="section_title_wrap">
+          <h4 class="section_title">Project <span>Works</span></h4>
+        </div>
+        <div class="section_title_wrap section_sub_title_wrap">
+          <h4 class="section_title">실제 작업한 프로젝트를 정리했습니다</h4>
+        </div>
       </div>
-      <div class="section_title_wrap section_sub_title_wrap">
-        <h4 class="section_title">실제 작업한 프로젝트를 정리했습니다</h4>
+      <div class="slide_area">
+        <div class="swiper projectSlide common_trans_attr">
+          <ul class="swiper-wrapper">
+            <li
+              v-for="(project, index) in projectList"
+              :key="project.id"
+              class="swiper-slide"
+              @click="emit('open-project', index)"
+            >
+              <ProjectSlide :project="project" />
+            </li>
+          </ul>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </div>
-    <div class="slide_area">
-      <div class="swiper projectSlide common_trans_attr">
-        <ul class="swiper-wrapper">
-          <li
-            v-for="(project, index) in projectList"
-            :key="project.id"
-            class="swiper-slide"
-            @click="emit('open-project', index)"
-          >
-            <ProjectSlide :project="project" />
-          </li>
-        </ul>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -63,18 +65,18 @@ const emit = defineEmits<{
   align-items: center;
 }
 
-.swiper-slide {
+.project_section .swiper-slide {
   position: relative;
   border: 2px solid rgba(255, 255, 255, 0.6);
   box-sizing: border-box;
   cursor: pointer;
 }
 
-.swiper-slide:hover :deep(.slide_main_img img) {
+.project_section .swiper-slide:hover :deep(.slide_main_img img) {
   transform: scale(1.1);
 }
 
-.swiper-slide:hover :deep(.view_btn span:after) {
+.project_section .swiper-slide:hover :deep(.view_btn span:after) {
   transform: scaleX(1);
 }
 
@@ -93,8 +95,8 @@ const emit = defineEmits<{
 }
 
 /* projects hover 선 효과 */
-.swiper-slide:before,
-.swiper-slide:after,
+.project_section .swiper-slide:before,
+.project_section .swiper-slide:after,
 :deep(.slide_inner:before),
 :deep(.slide_inner:after) {
   content: '';
@@ -102,27 +104,27 @@ const emit = defineEmits<{
   background: var(--main-color);
   transition: all 0.4s ease;
 }
-.swiper-slide:before,
-.swiper-slide:after {
+.project_section .swiper-slide:before,
+.project_section .swiper-slide:after {
   width: 2px;
   height: calc(100% + 2px);
 }
-.swiper-slide:before {
+.project_section .swiper-slide:before {
   top: -2px;
   left: -2px;
   transform: scaleY(0);
   transform-origin: left bottom;
 }
-.swiper-slide:hover:before {
+.project_section .swiper-slide:hover:before {
   transform: scaleY(1);
 }
-.swiper-slide:after {
+.project_section .swiper-slide:after {
   top: 0;
   right: -2px;
   transform: scaleY(0);
   transform-origin: right top;
 }
-.swiper-slide:hover:after {
+.project_section .swiper-slide:hover:after {
   transform: scaleY(1);
 }
 :deep(.slide_inner:before),
@@ -136,7 +138,7 @@ const emit = defineEmits<{
   transform: scaleX(0);
   transform-origin: left top;
 }
-.swiper-slide:hover :deep(.slide_inner:before) {
+.project_section .swiper-slide:hover :deep(.slide_inner:before) {
   transform: scaleX(1);
 }
 :deep(.slide_inner:after) {
@@ -145,7 +147,7 @@ const emit = defineEmits<{
   transform: scaleX(0);
   transform-origin: right bottom;
 }
-.swiper-slide:hover :deep(.slide_inner:after) {
+.project_section .swiper-slide:hover :deep(.slide_inner:after) {
   transform: scaleX(1);
 }
 </style>
