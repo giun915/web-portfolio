@@ -1,5 +1,7 @@
 import type { Component } from 'vue'
-import { IconHtml, IconCss, IconResponsive, IconVue } from '@/components/icons'
+import { IconHtml, IconResponsive } from '@/components/icons'
+import IconCss from '@/components/icons/project/IconCss.vue'
+import IconVue from '@/components/icons/project/IconVue.vue'
 
 export type ProjectSkillItem = {
   icon: Component

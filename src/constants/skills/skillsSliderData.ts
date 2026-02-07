@@ -1,4 +1,7 @@
-import { IconPublishing, IconFront, IconBack, IconDatabase } from '@/components/icons'
+import { IconHtml } from '@/components/icons'
+import IconBack from '@/components/icons/skills/IconBack.vue'
+import IconDatabase from '@/components/icons/skills/IconDatabase.vue'
+import IconFront from '@/components/icons/skills/IconFront.vue'
 import type { Component } from 'vue'
 
 export type SkillLevel = {
@@ -21,7 +24,7 @@ export const skillList: SkillItem[] = [
     customClass: 'publishing_box',
     title: 'Publishing',
     content: '시맨틱 마크업과 최신 CSS 기술을 활용한 웹 표준 및 접근성 기반 퍼블리싱 구현',
-    icon: IconPublishing,
+    icon: IconHtml,
     levels: [
       { name: 'HTML5', percent: 95 },
       { name: 'CSS3', percent: 90 },

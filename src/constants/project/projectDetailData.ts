@@ -1,12 +1,10 @@
 import type { Component } from 'vue'
-import {
-  IconDuration,
-  IconTechnology,
-  IconRole,
-  IconResponsive,
-  IconGallery,
-} from '@/components/icons'
+import { IconResponsive } from '@/components/icons'
 import { markRaw } from 'vue'
+import IconDuration from '@/components/icons/project/IconDuration.vue'
+import IconTechnology from '@/components/icons/project/IconTechnology.vue'
+import IconRole from '@/components/icons/project/IconRole.vue'
+import IconGallery from '@/components/icons/project/IconGallery.vue'
 
 /* 메인 스킬 배지 */
 export type ProjectMainSkill = {

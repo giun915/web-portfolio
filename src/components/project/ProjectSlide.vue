@@ -104,6 +104,13 @@ defineProps<{
 .skill_icon_list i {
   display: flex;
 }
+.skill_icon_list .html_icon {
+  color: #fb923c;
+}
+
+.skill_icon_list .responsive_icon {
+  color: #f472b6;
+}
 .skill_icon_list svg {
   height: 1.5em;
 }
