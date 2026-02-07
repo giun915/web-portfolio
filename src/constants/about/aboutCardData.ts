@@ -1,4 +1,6 @@
-import { IconEducation, IconExperience, IconProject } from '@/components/icons'
+import IconEducation from '@/components/icons/about/IconEducation.vue'
+import IconExperience from '@/components/icons/about/IconExperience.vue'
+import IconProject from '@/components/icons/about/IconProject.vue'
 import type { Component } from 'vue'
 
 export interface AboutItem {

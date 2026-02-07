@@ -1,6 +1,8 @@
+import IconCommunication from '@/components/icons/skills/IconCommunication.vue'
+import IconEcommerce from '@/components/icons/skills/IconEcommerce.vue'
+import IconGitlab from '@/components/icons/skills/IconGitlab.vue'
+import IconHybrid from '@/components/icons/skills/IconHybrid.vue'
 import type { Component } from 'vue'
-import { IconEcommerce, IconHybrid, IconCommunication, IconGitlab } from '@/components/icons'
-
 export type SkillItem = {
   name: string
   icon: Component
