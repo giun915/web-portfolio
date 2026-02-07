@@ -154,6 +154,7 @@ const closeProject = () => {
       <AboutView />
       <SkillsView />
       <ProjectView @open-project="openProject" />
+      <ContactView />
     </div>
     <div class="swiper-pagination"></div>
   </main>
