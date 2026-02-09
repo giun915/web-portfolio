@@ -31,4 +31,11 @@ defineExpose({ footerPagination })
 p {
   color: var(--gray-color);
 }
+/* 반응형 */
+@media (max-width: 1200px) {
+  p {
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>

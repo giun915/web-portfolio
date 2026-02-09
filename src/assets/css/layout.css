@@ -159,3 +159,17 @@ section .page_inner {
   height: 0.75rem;
   background: var(--basic-color);
 }
+
+/* 반응형 */
+@media (max-width: 1600px) {
+  .page_inner {
+    width: 100%;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  #footer .swiper-pagination {
+    display: none;
+  }
+}
