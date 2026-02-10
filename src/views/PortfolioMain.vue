@@ -25,7 +25,6 @@ const goToSlide = (id: number) => {
   fullPage.value?.slideTo(id)
 }
 
-const footerRef = ref<InstanceType<typeof GlobalFooter> | null>(null)
 const sectionEls = ref<HTMLElement[]>([])
 const anchors = ref<string[]>([])
 
@@ -46,19 +45,10 @@ onMounted(() => {
 
     touchStartPreventDefault: false,
 
-    pagination: {
-      el: '.pullPageSlide > .swiper-pagination',
-      clickable: true,
-    },
-
     on: {
       async init(swiper) {
         // DOM 안정화 (Footer ref / pagination 생성 보장)
         await nextTick()
-
-        const target = footerRef.value?.footerPagination
-        const paginationEl = swiper.pagination?.el
-        if (target && paginationEl) target.appendChild(paginationEl)
 
         const slides = Array.from(
           document.querySelectorAll<HTMLElement>(
@@ -156,10 +146,9 @@ const closeProject = () => {
       <ProjectView @open-project="openProject" />
       <ContactView />
     </div>
-    <div class="swiper-pagination"></div>
   </main>
 
-  <GlobalFooter ref="footerRef" />
+  <GlobalFooter :activeIndex="activeSectionIndex" :goToSlide="goToSlide" />
 
   <transition name="portfolio-detail">
     <ProjectDetailPopup

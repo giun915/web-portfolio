@@ -8,8 +8,9 @@ svg {
 }
 .pullPageSlide {
   width: 100%;
-  height: 100%;
+  height: calc(100dvh - 8.125rem);
   background: #121212;
+  padding-top: 89px;
 }
 .page_inner {
   display: flex;
@@ -83,81 +84,6 @@ section .page_inner {
   background: var(--basic-color);
   border-radius: 50%;
   animation: bounce 3s ease-in-out infinite;
-}
-
-/* 푸터 네비게이션 */
-#footer .swiper-pagination {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  top: initial;
-  bottom: 0;
-  margin-right: 3.5rem;
-  transform: none;
-  width: 120px;
-  height: 40px;
-  background: var(--secondary-color);
-  border-radius: 6px 6px 0 0;
-}
-
-#footer .swiper-pagination:before,
-#footer .swiper-pagination:after {
-  content: '';
-  position: absolute;
-  transition: all 0.4s ease;
-}
-#footer .swiper-pagination:before {
-  transform: translateX(-100%);
-  left: 0;
-  bottom: 0;
-  border-top: 18px solid transparent;
-  border-right: 12px solid var(--secondary-color);
-  border-bottom: 18px solid var(--secondary-color);
-  border-left: 12px solid transparent;
-}
-#footer .swiper-pagination:after {
-  transform: translateX(100%);
-  right: 0;
-  bottom: 0;
-  border-top: 18px solid transparent;
-  border-left: 12px solid var(--secondary-color);
-  border-bottom: 18px solid var(--secondary-color);
-  border-right: 12px solid transparent;
-}
-#footer .swiper-pagination span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 0.625rem;
-  height: 0.625rem;
-  margin: 0;
-  opacity: 1;
-  background: none;
-}
-#footer .swiper-pagination span:after {
-  content: '';
-  display: block;
-  width: 0.25rem;
-  height: 0.25rem;
-  background: #dbc3b1;
-  border-radius: 9999px;
-  transition: all 0.2s ease;
-}
-#footer .swiper-pagination-bullet:only-child {
-  display: flex !important;
-}
-#footer .swiper-pagination span:not(.swiper-pagination-bullet-active):hover:after {
-  width: 0.625rem;
-  height: 0.625rem;
-}
-#footer .swiper-pagination .swiper-pagination-bullet-active {
-  width: 0.75rem;
-  height: 0.75rem;
-}
-#footer .swiper-pagination .swiper-pagination-bullet-active:after {
-  width: 0.75rem;
-  height: 0.75rem;
-  background: var(--basic-color);
 }
 
 /* 반응형 */
