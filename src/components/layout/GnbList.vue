@@ -6,7 +6,10 @@ const props = defineProps<{
   activeIndex: number
   goToSlide: (id: number) => void
   onAfterSelect?: () => void
+  variant?: 'text' | 'dot'
 }>()
+
+const variant = props.variant ?? 'text'
 
 function handleClick(index: number) {
   props.goToSlide(index)
@@ -22,9 +25,22 @@ function handleClick(index: number) {
       class="gnb"
       :class="[gnb.className, props.activeIndex === gnb.index ? 'on' : '']"
     >
-      <a href="#" @click.prevent="handleClick(gnb.index)">
+      <button
+        v-if="variant === 'text'"
+        type="button"
+        :aria-current="props.activeIndex === gnb.index ? 'true' : undefined"
+        @click="handleClick(gnb.index)"
+      >
         {{ gnb.label }}
-      </a>
+      </button>
+      <button
+        v-else
+        type="button"
+        class="dot"
+        @click="handleClick(gnb.index)"
+        :aria-current="props.activeIndex === gnb.index ? 'true' : undefined"
+        aria-label="section navigation"
+      ></button>
     </li>
   </ul>
 </template>
@@ -37,17 +53,17 @@ function handleClick(index: number) {
   gap: 3.75rem;
 }
 
-a {
+button {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.4s ease;
+  transition: color 0.4s ease;
 }
-.gnb:hover a {
+.gnb:hover button {
   color: var(--main-color);
 }
-.on a:after {
+.on button:after {
   content: '';
   position: absolute;
   top: -0.625rem;
@@ -64,13 +80,49 @@ a {
   margin-top: 5rem;
 }
 
-.mobile_gnb a {
+.mobile_gnb button {
   font-size: 1.25rem;
 }
-.mobile_gnb .on a:after {
+.mobile_gnb .on button:after {
   top: initial;
   left: -1rem;
   width: 0.5rem;
   height: 0.5rem;
+}
+.navigation_wrap .gnb_wrap {
+  width: 100%;
+  justify-content: space-around;
+  gap: initial;
+}
+
+.navigation_wrap li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: pointer;
+}
+
+.navigation_wrap button {
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #dbc3b1;
+  border-radius: 9999px;
+  font-size: 0;
+}
+
+.navigation_wrap button:after {
+  display: none;
+}
+
+.navigation_wrap li:hover button {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+.navigation_wrap li.on button {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--basic-color);
 }
 </style>
