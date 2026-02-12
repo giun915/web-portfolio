@@ -114,13 +114,16 @@ p {
 }
 
 /* 반응형 */
-@media (max-width: 768px) {
-  p {
-    width: 100%;
-    text-align: center;
+@media (max-width: 1200px) {
+  #footer {
+    position: relative;
   }
   .navigation_wrap {
     display: none;
+  }
+  p {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>

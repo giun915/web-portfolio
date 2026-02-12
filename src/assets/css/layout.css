@@ -6,11 +6,23 @@
 svg {
   height: 1em;
 }
-.pullPageSlide {
+.commonPage {
   width: 100%;
-  height: calc(100dvh - 8.125rem);
   background: #121212;
   padding-top: 89px;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+}
+
+.pullPageSlide {
+  height: calc(100dvh - 8.125rem);
+}
+.scrollPage {
+  height: auto;
 }
 .page_inner {
   display: flex;
@@ -33,7 +45,6 @@ section.section_slide {
 section .page_inner {
   height: 100%;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -90,12 +101,5 @@ section .page_inner {
 @media (max-width: 1600px) {
   .page_inner {
     width: 100%;
-  }
-}
-
-/* 반응형 */
-@media (max-width: 1200px) {
-  #footer .swiper-pagination {
-    display: none;
   }
 }

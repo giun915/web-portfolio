@@ -115,7 +115,7 @@ function animateSkillBars(container: HTMLElement | Document = document) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: 9.125rem;
+  max-height: 5.625rem;
   overflow-y: auto;
 }
 .skill_level_list.has_scroll {
