@@ -1,40 +1,78 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, nextTick } from 'vue'
+import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
 
 const props = defineProps<{
   active: boolean
+  goToSlide: (id: number) => void
+  anchors: string[]
 }>()
 
-const introTextEl = ref<HTMLElement | null>(null)
+const moveTo = (anchor: string) => {
+  const index = props.anchors.indexOf(anchor)
+  if (index === -1) return
+  props.goToSlide(index)
+}
 
-const initIntroSection = () => {
-  const el = introTextEl.value
+const introTextEl1 = ref<HTMLElement | null>(null)
+const introTextEl2 = ref<HTMLElement | null>(null)
 
-  if (!el) return
+let cleanupEndListener: (() => void) | null = null
+let timer1: number | null = null
 
+const setupText = (el: HTMLElement) => {
   const text = el.textContent?.trim() ?? ''
   el.dataset.text = text
   el.style.setProperty('--steps', String(text.length))
+}
 
-  setTimeout(() => el.classList.add('on'), 1000)
+const runIntro = async () => {
+  await nextTick()
+
+  const el1 = introTextEl1.value
+  const el2 = introTextEl2.value
+  if (!el1 || !el2) return
+
+  el1.classList.remove('on')
+  el2.classList.remove('on')
+
+  setupText(el1)
+  setupText(el2)
+
+  if (timer1) window.clearTimeout(timer1)
+  timer1 = window.setTimeout(() => el1.classList.add('on'), 1000)
+
+  const onEnd = (e: AnimationEvent) => {
+    if (e.animationName !== 'colorReveal') return
+    el2.classList.add('on')
+  }
+
+  cleanupEndListener?.()
+  el1.addEventListener('animationend', onEnd)
+
+  cleanupEndListener = () => {
+    el1.removeEventListener('animationend', onEnd)
+    cleanupEndListener = null
+  }
 }
 
 onMounted(async () => {
-  await nextTick()
+  if (props.active) await runIntro()
+})
 
-  if (props.active) {
-    initIntroSection()
-  }
+onBeforeUnmount(() => {
+  cleanupEndListener?.()
+  if (timer1) window.clearTimeout(timer1)
 })
 
 watch(
   () => props.active,
-  (isActive) => {
+  async (isActive) => {
     if (isActive) {
-      initIntroSection()
-    } else {
-      introTextEl.value?.classList.remove('on')
+      await runIntro()
+      return
     }
+    introTextEl1.value?.classList.remove('on')
+    introTextEl2.value?.classList.remove('on')
   },
 )
 </script>
@@ -57,19 +95,22 @@ watch(
         <div class="txt_wrap">
           <h4 class="common_trans_attr sub_intro_txt">Beautiful and Functional Web</h4>
         </div>
-        <div class="txt_wrap">
-          <p ref="introTextEl" class="common_trans_attr intro_txt_kr">
-            사용자 경험을 최우선으로 생각하며, 아름답고 기능적인 웹사이트를 제작합니다.
+        <div class="txt_wrap intro_txt_wrap">
+          <p ref="introTextEl1" class="common_trans_attr intro_txt_kr intro_line1">
+            사용자 경험을 최우선으로 생각하며,
+          </p>
+          <p ref="introTextEl2" class="common_trans_attr intro_txt_kr intro_line2">
+            아름답고 기능적인 웹사이트를 제작합니다.
           </p>
         </div>
       </div>
       <div class="button_wrap">
-        <a class="portfolio_btn common_trans_attr" href="#project" data-menuanchor="portfolio"
-          >View Portfolio</a
-        >
-        <a class="contact_btn common_trans_attr" href="#contact" data-menuanchor="contact"
-          >Contact Me</a
-        >
+        <button class="portfolio_btn common_trans_attr" type="button" @click="moveTo('project')">
+          View Portfolio
+        </button>
+        <button class="contact_btn common_trans_attr" type="button" @click="moveTo('contact')">
+          Contact Me
+        </button>
       </div>
       <div class="common_mouse_icon_wrap">
         <div class="mouse_icon common_trans_attr">
@@ -88,14 +129,6 @@ watch(
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, #0a0a0a 0%, #121212 50%, #0a0a0a 100%);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-}
-.swiper-slide-active .bg_wrap {
-  opacity: 0.2;
-  visibility: visible;
 }
 .bg_circle {
   position: absolute;
@@ -103,6 +136,7 @@ watch(
   height: 24rem;
   border-radius: 50%;
   filter: blur(4rem);
+  opacity: 0.2;
 }
 .left_circle {
   top: 8rem;
@@ -117,7 +151,7 @@ watch(
 
 .badge_icon_wrap {
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin: 5rem 0 2rem;
   padding: 2px 0;
 }
 .badge_icon_wrap .badge_icon {
@@ -153,10 +187,16 @@ watch(
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
+
+.intro_txt_wrap {
+  gap: 0.5rem;
+}
+
 .intro_txt_kr {
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--gray-color);
+  word-break: keep-all;
 }
 .swiper-slide-active .intro_txt_kr.on::after {
   content: attr(data-text);
@@ -171,7 +211,7 @@ watch(
   -webkit-text-fill-color: transparent;
   overflow: hidden;
   white-space: nowrap;
-  animation: colorReveal 3s steps(var(--steps)) forwards;
+  animation: colorReveal 2s steps(var(--steps)) forwards;
 }
 
 .button_wrap {
@@ -180,13 +220,13 @@ watch(
   gap: 1.25rem;
   overflow: hidden;
 }
-.button_wrap a {
+.button_wrap button {
   padding: 1rem 2rem;
   font-weight: 600;
   border-radius: 0.5rem;
   transition: all 0.4s ease;
 }
-.button_wrap a:hover {
+.button_wrap button:hover {
   background-color: var(--main-color);
   color: #0a0a0a;
 }
@@ -197,5 +237,49 @@ watch(
 .button_wrap .contact_btn {
   border: 1px solid var(--main-color);
   color: var(--main-color);
+}
+
+@media (max-width: 1200px) {
+  .badge_icon_wrap {
+    margin: 3.5rem 0 2rem;
+  }
+
+  .bg_circle {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .txt_wrap {
+    font-size: 3rem;
+  }
+
+  .intro_txt_kr {
+    font-size: 1rem;
+  }
+
+  .button_wrap {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .badge_icon_wrap .badge_icon {
+    font-size: 0.75rem;
+  }
+
+  .txt_wrap {
+    font-size: 2.5rem;
+  }
+
+  .intro_txt_kr {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro_txt_wrap {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
