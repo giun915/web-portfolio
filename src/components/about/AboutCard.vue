@@ -42,4 +42,15 @@ defineProps<{
   color: var(--gray-color);
   font-size: 1rem;
 }
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .card_content .title {
+    font-size: 0.875rem;
+  }
+
+  .card_content .content {
+    font-size: 0.875rem;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconLinkedIn } from '@/components/icons'
+import { IconGithub, IconLinkedIn } from '@/components/icons'
 import IconResume from '@/components/icons/about/IconResume.vue'
 import IconContact from '@/components/icons/about/IconContact.vue'
 </script>
@@ -30,13 +30,19 @@ import IconContact from '@/components/icons/about/IconContact.vue'
           class="linked_icon"
           target="_blank"
         >
-          <IconLinkedIn />
+          <i>
+            <IconLinkedIn />
+          </i>
         </a>
         <a href="resume/resume.pdf" target="_blank" class="resume_icon">
-          <IconResume />
+          <i>
+            <IconResume />
+          </i>
         </a>
-        <a href="#contact" class="contact_icon">
-          <IconContact />
+        <a href="https://github.com/giun915" class="github_icon" target="_blank">
+          <i>
+            <IconGithub />
+          </i>
         </a>
       </div>
     </div>
@@ -66,18 +72,18 @@ import IconContact from '@/components/icons/about/IconContact.vue'
   /*height: 118px; overflow-y: auto; padding-right: 1rem;*/
   margin-bottom: 2rem;
 }
-.about_description p {
+p {
   margin-bottom: 1.5rem;
   color: var(--gray-color);
   font-size: 1.125rem;
-  line-height: 1.25;
+  line-height: 1.5;
   word-break: keep-all;
 }
 .description_icon_wrap {
   display: flex;
   gap: 1.5rem;
 }
-.description_icon_wrap a {
+a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,8 +93,43 @@ import IconContact from '@/components/icons/about/IconContact.vue'
   border: 1px solid #374151;
   transition: all 0.4s ease;
 }
-.description_icon_wrap a:hover {
+a:hover {
   border-color: var(--main-color);
   color: var(--main-color);
+}
+
+i {
+  line-height: 0;
+  font-size: 1.25rem;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .description_title {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .description_title {
+    font-size: 2.25rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  a {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  i {
+    font-size: 1rem;
+  }
 }
 </style>
