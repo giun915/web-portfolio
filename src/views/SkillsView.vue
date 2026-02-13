@@ -31,8 +31,12 @@ defineProps<{
 .section_title_area {
   margin-top: 2rem;
 }
+.scrollPage .section_title_area {
+  margin-top: 0;
+}
 .skills_box_area {
   width: 100%;
+  margin-top: 1rem;
 }
 :deep(.box_area_inner) {
   overflow: hidden;

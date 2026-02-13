@@ -45,7 +45,7 @@ import { aboutList } from '@/constants/about/aboutCardData'
 }
 .about_card_wrap {
   width: 100%;
-  transform: translateX(105%);
+  transform: translateX(115%);
   transition: all 1s ease;
 }
 .swiper-slide-active .about_card_wrap {

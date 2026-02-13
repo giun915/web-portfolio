@@ -75,7 +75,7 @@ onBeforeUnmount(() => {
   width: 100%;
   top: 0;
   border-bottom: 1px solid var(--border-color);
-  z-index: 2;
+  z-index: 11;
   background-color: #0a0a0ae6;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);

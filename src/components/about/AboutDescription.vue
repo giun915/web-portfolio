@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { IconGithub, IconLinkedIn } from '@/components/icons'
 import IconResume from '@/components/icons/about/IconResume.vue'
-import IconContact from '@/components/icons/about/IconContact.vue'
 </script>
 
 <template>
