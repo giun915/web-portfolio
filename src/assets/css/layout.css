@@ -67,9 +67,6 @@ section .page_inner {
 .section_title span {
   color: var(--main-color);
 }
-.section_sub_title_wrap {
-  margin-top: 1rem;
-}
 .section_sub_title_wrap .section_title {
   color: var(--gray-color);
   font-size: 1.125rem;
@@ -112,5 +109,14 @@ section .page_inner {
 @media (max-width: 1200px) {
   .section_title {
     font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section_title {
+    font-size: 2.25rem;
+  }
+  .section_sub_title_wrap .section_title {
+    font-size: 1rem;
   }
 }

@@ -107,7 +107,7 @@ function animateSkillBars(container: HTMLElement | Document = document) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--gray-color);
   word-break: keep-all;
 }
@@ -202,8 +202,15 @@ function animateSkillBars(container: HTMLElement | Document = document) {
 .swiper-button-next {
   opacity: 0;
   visibility: hidden;
-  transition: all 2s ease;
+  transition:
+    opacity 1s ease 0.8s,
+    visibility 1s ease 0.8s;
   color: var(--main-color);
+  border-radius: 9999px;
+  background-color: #1d2229;
+  border: 1px solid #374151;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .swiper-slide-active .swiper-button-prev,
 .swiper-slide-active .swiper-button-next {
@@ -214,9 +221,20 @@ function animateSkillBars(container: HTMLElement | Document = document) {
   transform: translateY(-50%);
   margin-left: initial;
 }
+
+.swiper-slide-active .swiper-button-prev :deep(svg.swiper-navigation-icon),
+.swiper-slide-active .swiper-button-next :deep(svg.swiper-navigation-icon) {
+  color: var(--basic-color);
+  font-size: 1.25rem;
+  height: 1em;
+}
 .swiper-slide-active .swiper-button-next.swiper-button-disabled,
 .swiper-slide-active .swiper-button-prev.swiper-button-disabled {
-  opacity: 0.35;
+  background-color: #1b1d1f;
+}
+.swiper-slide-active .swiper-button-next.swiper-button-disabled :deep(svg.swiper-navigation-icon),
+.swiper-slide-active .swiper-button-prev.swiper-button-disabled :deep(svg.swiper-navigation-icon) {
+  color: #606060;
 }
 .skills_section .swiper-button-prev {
   left: -3.5rem;
@@ -225,10 +243,38 @@ function animateSkillBars(container: HTMLElement | Document = document) {
   left: initial;
   right: -3.5rem;
 }
-:deep(.swiper-button-prev svg.swiper-navigation-icon) {
+.swiper-button-prev :deep(svg.swiper-navigation-icon) {
   transform: rotate(180deg);
 }
-:deep(.swiper-button-next svg.swiper-navigation-icon) {
+.swiper-button-next :deep(svg.swiper-navigation-icon) {
   transform: rotate(0);
+}
+
+/* 반응형 */
+@media (max-width: 1670px) {
+  .swiper-slide-active .swiper-button-prev,
+  .swiper-slide-active .swiper-button-next {
+    top: -2.5rem;
+    transform: none;
+    right: 0;
+  }
+
+  .swiper-slide-active .swiper-button-prev {
+    left: initial;
+    right: 3.5rem;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .swiper-slide-active .swiper-button-prev,
+  .swiper-slide-active .swiper-button-next {
+    top: 3rem;
+    right: 1rem;
+  }
+
+  .swiper-slide-active .swiper-button-prev {
+    right: 4.5rem;
+  }
 }
 </style>

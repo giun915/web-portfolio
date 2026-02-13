@@ -281,17 +281,31 @@ const initHorizontalSwipers = async () => {
   if (document.querySelector('.skillSlide')) {
     skillSwiper = new Swiper('.skillSlide', {
       direction: 'horizontal',
-      slidesPerView: 3,
       spaceBetween: 32,
       nested: true,
+
       mousewheel: {
         forceToAxis: true,
         releaseOnEdges: true,
         sensitivity: 0.8,
       },
+
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
+      },
+
+      /* 반응형 설정 */
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        769: {
+          slidesPerView: 2,
+        },
+        1201: {
+          slidesPerView: 3,
+        },
       },
     })
   }

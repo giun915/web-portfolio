@@ -40,5 +40,18 @@ import { skillList } from '@/constants/skills/skillsSimpleData'
 }
 .box_name {
   font-size: 1rem;
+  text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .page_inner {
+    width: 100%;
+  }
+
+  .skills_simple_area .skills_box_list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 </style>
