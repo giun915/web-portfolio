@@ -239,6 +239,7 @@ watch(
   color: var(--main-color);
 }
 
+/* 반응형 */
 @media (max-width: 1200px) {
   .badge_icon_wrap {
     margin: 3.5rem 0 2rem;
@@ -280,6 +281,10 @@ watch(
   .intro_txt_wrap {
     flex-direction: column;
     align-items: center;
+  }
+
+  .intro_txt_kr {
+    transform: translateY(225%);
   }
 }
 </style>

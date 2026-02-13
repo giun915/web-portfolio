@@ -33,7 +33,7 @@ import { aboutList } from '@/constants/about/aboutCardData'
   flex-direction: row;
   gap: 4rem;
 }
-.page_inner > div {
+.page_inner > * {
   display: flex;
   align-items: center;
   width: 50%;
@@ -66,5 +66,16 @@ import { aboutList } from '@/constants/about/aboutCardData'
   background-color: var(--box-bg-color);
   border: 1px solid var(--border-color);
   border-radius: 1rem;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .page_inner {
+    flex-direction: column;
+  }
+
+  .page_inner > * {
+    width: 100%;
+  }
 }
 </style>

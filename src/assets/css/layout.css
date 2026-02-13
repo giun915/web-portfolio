@@ -24,6 +24,11 @@ svg {
 .scrollPage {
   height: auto;
 }
+
+.scrollPage > *:not(.intro_section) > .page_inner {
+  margin-top: 8rem;
+}
+
 .page_inner {
   display: flex;
   width: 1600px;
@@ -101,5 +106,11 @@ section .page_inner {
 @media (max-width: 1600px) {
   .page_inner {
     width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section_title {
+    font-size: 2.5rem;
   }
 }
