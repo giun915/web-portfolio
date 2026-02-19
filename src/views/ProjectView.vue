@@ -1,15 +1,31 @@
 <script setup lang="ts">
+import { computed, nextTick, ref, watch } from 'vue'
 import { projectList } from '@/constants/project/projectListData'
 import ProjectSlide from '@/components/project/ProjectSlide.vue'
 
 const emit = defineEmits<{
   (e: 'open-project', id: number): void
 }>()
+
+const categories = ['All', 'Web Site'] as const
+type CategoryFilter = (typeof categories)[number]
+
+const activeCategory = ref<CategoryFilter>('All')
+
+const filteredProjects = computed(() => {
+  if (activeCategory.value === 'All') return projectList
+  return projectList.filter((p) => p.type === activeCategory.value)
+})
+
+watch(activeCategory, async () => {
+  await nextTick()
+})
 </script>
 
 <template>
   <section class="swiper-slide section_slide project_section" data-anchor="project">
     <h4 class="blind">프로젝트 섹션</h4>
+
     <div class="page_inner">
       <div class="section_title_area">
         <div class="section_title_wrap">
@@ -19,14 +35,28 @@ const emit = defineEmits<{
           <h4 class="section_title">실제 작업한 프로젝트를 정리했습니다</h4>
         </div>
       </div>
+
+      <div class="project_filter">
+        <button
+          v-for="c in categories"
+          :key="c"
+          type="button"
+          class="filter_btn common_trans_attr"
+          :class="{ on: activeCategory === c }"
+          @click="activeCategory = c"
+        >
+          {{ c }}
+        </button>
+      </div>
+
       <div class="slide_area">
         <div class="swiper projectSlide common_trans_attr">
           <ul class="swiper-wrapper">
             <li
-              v-for="(project, index) in projectList"
+              v-for="project in filteredProjects"
               :key="project.id"
               class="swiper-slide"
-              @click="emit('open-project', index)"
+              @click="emit('open-project', project.id)"
             >
               <ProjectSlide :project="project" />
             </li>
@@ -40,8 +70,31 @@ const emit = defineEmits<{
 
 <style scoped>
 .page_inner {
-  gap: 5rem;
+  gap: 3rem;
 }
+.project_filter {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.filter_btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  color: var(--basic-color);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid var(--basic-color);
+}
+
+.filter_btn.on {
+  background: var(--secondary-color);
+  color: var(--basic-color);
+  border: 1px solid var(--secondary-color);
+}
+
 .slide_area {
   position: relative;
   display: flex;
@@ -68,6 +121,7 @@ const emit = defineEmits<{
   border: 2px solid rgba(255, 255, 255, 0.6);
   box-sizing: border-box;
   cursor: pointer;
+  width: calc((100% - 4rem) / 3);
 }
 
 .project_section .swiper-slide:hover :deep(.slide_main_img img) {
@@ -147,9 +201,5 @@ const emit = defineEmits<{
 }
 .project_section .swiper-slide:hover :deep(.slide_inner:after) {
   transform: scaleX(1);
-}
-
-/* 반응형 */
-@media (max-width: 1024px) {
 }
 </style>

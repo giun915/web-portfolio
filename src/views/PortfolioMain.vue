@@ -336,6 +336,7 @@ const initHorizontalSwipers = async () => {
           slidesPerView: 3,
         },
       },
+      updateOnWindowResize: true,
     })
   }
 
