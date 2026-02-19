@@ -271,10 +271,17 @@ function animateSkillBars(container: HTMLElement | Document = document) {
   .swiper-slide-active .swiper-button-next {
     top: 3rem;
     right: 1rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .swiper-slide-active .swiper-button-prev {
-    right: 4.5rem;
+    right: 4rem;
+  }
+
+  .swiper-slide-active .swiper-button-prev :deep(svg.swiper-navigation-icon),
+  .swiper-slide-active .swiper-button-next :deep(svg.swiper-navigation-icon) {
+    font-size: 0.875rem;
   }
 }
 </style>

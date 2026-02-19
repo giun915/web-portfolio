@@ -40,10 +40,7 @@ const emit = defineEmits<{
 
 <style scoped>
 .page_inner {
-  gap: 2rem;
-}
-.section_title_area {
-  margin-bottom: 3rem;
+  gap: 5rem;
 }
 .slide_area {
   position: relative;
@@ -56,6 +53,7 @@ const emit = defineEmits<{
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .projectSlide {
@@ -142,12 +140,16 @@ const emit = defineEmits<{
   transform: scaleX(1);
 }
 :deep(.slide_inner:after) {
-  bottom: -3px;
+  bottom: -2px;
   right: 0;
   transform: scaleX(0);
   transform-origin: right bottom;
 }
 .project_section .swiper-slide:hover :deep(.slide_inner:after) {
   transform: scaleX(1);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
 }
 </style>

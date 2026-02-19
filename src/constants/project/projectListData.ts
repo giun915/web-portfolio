@@ -51,12 +51,12 @@ export const projectList: ProjectItem[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     client: 'JungIn',
     clientTheme: 'dark',
     type: 'Web Site',
-    title: '정인 인테리어1',
-    desc: '인테리어 업체 반응형 웹사이트 퍼블리싱 작업',
+    title: '정인 인테리어2',
+    desc: '인테리어 업체 반응형 웹사이트',
     image: '/assets/imgs/portfolio/jungin/main_display.png',
     skills: [
       { icon: IconHtml, className: 'html_icon' },
@@ -66,12 +66,12 @@ export const projectList: ProjectItem[] = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     client: 'JungIn',
     clientTheme: 'dark',
     type: 'Web Site',
-    title: '정인 인테리어1',
-    desc: '인테리어 업체 반응형 웹사이트 퍼블리싱 작업',
+    title: '정인 인테리어3',
+    desc: '인테리어 업체 반응형 웹사이트',
     image: '/assets/imgs/portfolio/jungin/main_display.png',
     skills: [
       { icon: IconHtml, className: 'html_icon' },

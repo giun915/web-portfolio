@@ -49,6 +49,9 @@ defineProps<{
 }
 .slide_main_img img {
   transition: all 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .client_name {
@@ -69,9 +72,10 @@ defineProps<{
 .slide_content {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   padding: 1.5rem;
   background: var(--box-bg-color);
+  height: calc(100% - 16rem);
+  justify-content: space-around;
 }
 .content_header {
   display: flex;
@@ -123,6 +127,7 @@ defineProps<{
   font-size: 0.875rem;
   color: var(--gray-color);
   margin-bottom: 0.5rem;
+  word-break: keep-all;
 }
 .view_btn {
   display: inline-flex;
