@@ -102,7 +102,7 @@ const goNext = () => {
             </li>
           </ul>
           <div class="project_overview_wrap">
-            <h4>Project Overview</h4>
+            <h4 class="h4_title">Project Overview</h4>
             <div class="project_overview_box box_common_attr">
               <p v-for="(text, i) in project.overview" :key="i">
                 {{ text }}
@@ -110,7 +110,7 @@ const goNext = () => {
             </div>
           </div>
           <div class="project_key_wrap">
-            <h4>Key Features</h4>
+            <h4 class="h4_title">Key Features</h4>
             <ul class="project_key_list">
               <li
                 v-for="(item, i) in project.keyFeatures"
@@ -131,7 +131,7 @@ const goNext = () => {
           <!-- gallery -->
           <div class="project_gallery_wrap">
             <div class="gallery_title">
-              <h4>Project Gellery</h4>
+              <h4 class="h4_title">Project Gellery</h4>
               <div class="common_mouse_icon_wrap">
                 <div class="mouse_icon common_trans_attr">
                   <i class="mouse_circle"></i>
@@ -205,7 +205,7 @@ const goNext = () => {
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 100;
   transition: all 0.4s ease;
   background: transparent;
 }
@@ -293,12 +293,14 @@ const goNext = () => {
 .box_content_area {
   box-sizing: border-box;
   padding: 1.5rem 1rem 1.5rem 2rem;
+  height: calc(90vh - 204px);
 }
 .box_content_wrap {
-  height: calc(80vh - 9.5rem - 10px);
+  height: 100%;
   padding-right: 1rem;
   overflow-y: auto;
   box-sizing: border-box;
+  padding-bottom: 1px;
 }
 .box_content_wrap > * {
   margin-bottom: 2rem;
@@ -352,14 +354,12 @@ const goNext = () => {
 }
 
 .project_summary_list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 .project_summary_list li {
   display: flex;
-  flex: 1;
   flex-direction: column;
   gap: 0.75rem;
 }
@@ -413,7 +413,8 @@ const goNext = () => {
   gap: 1rem;
   word-break: keep-all;
 }
-.project_overview_wrap h4 {
+
+.h4_title {
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -423,22 +424,15 @@ const goNext = () => {
   color: #d1d5db;
   line-height: 1.625rem;
 }
-
-.project_key_wrap h4 {
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
 .project_key_list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 .project_key_item {
   display: flex;
   gap: 1rem;
-  width: 50%;
-  align-items: center;
+  align-items: flex-start;
 }
 .icon_wrap {
   display: flex;
@@ -447,6 +441,8 @@ const goNext = () => {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.5rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
 }
 .icon_wrap i {
   line-height: 0;
@@ -458,6 +454,7 @@ const goNext = () => {
 }
 .key_content .content {
   color: var(--gray-color);
+  word-break: keep-all;
 }
 .project_key_item:nth-child(1) .icon_wrap {
   background-color: rgb(168 85 247 / 0.2);
@@ -495,9 +492,7 @@ const goNext = () => {
   margin-bottom: 1rem;
 }
 .project_gallery_wrap h4 {
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 0;
+  margin-bottom: 0;
 }
 .project_gallery_wrap .img_wrap {
   height: 30rem;
@@ -534,6 +529,7 @@ const goNext = () => {
 .box_footer {
   border-bottom: none;
   padding: 0 2rem;
+  background: var(--box-bg-color);
 }
 .footer_inner {
   display: flex;
@@ -567,5 +563,59 @@ const goNext = () => {
 .box_footer a i {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .portfolio_detail_box {
+    width: 95%;
+  }
+
+  .summary_content {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio_detail_box {
+    width: 95%;
+  }
+
+  .project_title h4 {
+    font-size: 1.25rem;
+  }
+
+  .box_header button {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .box_header button:not(.arrow_btn) i {
+    font-size: 1rem;
+  }
+
+  .project_title_area {
+    gap: 1rem;
+  }
+
+  .h4_title {
+    font-size: 1.25rem;
+  }
+
+  .project_title p {
+    font-size: 0.875rem;
+  }
+
+  .project_summary_list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .project_overview_wrap p {
+    font-size: 0.875rem;
+  }
+
+  .project_key_list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 </style>

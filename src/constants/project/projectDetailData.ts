@@ -75,7 +75,7 @@ export const projectDetailList: ProjectDetail[] = [
       {
         title: 'Technologies',
         icon: markRaw(IconTechnology),
-        content: 'HTML5, CSS3, JQuery',
+        content: 'HTML5, CSS3, Vue',
         className: 'project_technologies_item',
       },
       {
@@ -139,7 +139,7 @@ export const projectDetailList: ProjectDetail[] = [
       {
         title: 'Technologies',
         icon: markRaw(IconTechnology),
-        content: 'HTML5, CSS3, JQuery',
+        content: 'HTML5, CSS3, Vue',
         className: 'project_technologies_item',
       },
       {
