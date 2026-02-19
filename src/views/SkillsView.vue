@@ -28,9 +28,6 @@ defineProps<{
 .page_inner {
   gap: 2rem;
 }
-.section_title_area {
-  margin-top: 2rem;
-}
 .scrollPage .section_title_area {
   margin-top: 0;
 }

@@ -313,7 +313,6 @@ const initHorizontalSwipers = async () => {
   if (document.querySelector('.projectSlide')) {
     projectSwiper = new Swiper('.projectSlide', {
       direction: 'horizontal',
-      slidesPerView: 3,
       spaceBetween: 32,
       nested: true,
       pagination: {
@@ -324,6 +323,18 @@ const initHorizontalSwipers = async () => {
         forceToAxis: true,
         releaseOnEdges: true,
         sensitivity: 0.8,
+      },
+      /* 반응형 설정 */
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        769: {
+          slidesPerView: 2,
+        },
+        1201: {
+          slidesPerView: 3,
+        },
       },
     })
   }
