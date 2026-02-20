@@ -624,5 +624,17 @@ const goNext = () => {
     padding: 0.75rem 0;
     font-size: 0.875rem;
   }
+
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .box_header,
+    .box_footer {
+      padding: 1rem 0.875rem;
+    }
+
+    .box_content_area {
+      padding: 1.5rem 0.875rem 1.5rem 0.875rem;
+    }
+  }
 }
 </style>

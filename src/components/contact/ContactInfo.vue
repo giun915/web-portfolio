@@ -136,4 +136,9 @@ const socialIconMap = {
 .contact_icon_list li:hover i {
   color: var(--main-color);
 }
+@media (max-width: 768px) {
+  .infomation_content_list .list_content p {
+    font-size: 0.875rem;
+  }
+}
 </style>

@@ -126,4 +126,9 @@ p {
     text-align: center;
   }
 }
+@media (max-width: 768px) {
+  p {
+    font-size: 0.75rem;
+  }
+}
 </style>
