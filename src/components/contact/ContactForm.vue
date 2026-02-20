@@ -70,23 +70,21 @@ const handleSubmit = async () => {
 <template>
   <form class="contact_input_wrap common_trans_attr" @submit.prevent="handleSubmit">
     <template v-for="field in contactFields" :key="field.id">
-      <div class="input_wrap" :class="{ textarea_wrap: field.type === 'textarea' }">
-        <input
-          v-if="field.type !== 'textarea'"
-          :type="field.type"
-          :name="field.name"
-          :placeholder="field.placeholder"
-          :required="field.required"
-          v-model="form[field.name]"
-        />
-        <textarea
-          v-else
-          :name="field.name"
-          :placeholder="field.placeholder"
-          :required="field.required"
-          v-model="form[field.name]"
-        ></textarea>
-      </div>
+      <input
+        v-if="field.type !== 'textarea'"
+        :type="field.type"
+        :name="field.name"
+        :placeholder="field.placeholder"
+        :required="field.required"
+        v-model="form[field.name]"
+      />
+      <textarea
+        v-else
+        :name="field.name"
+        :placeholder="field.placeholder"
+        :required="field.required"
+        v-model="form[field.name]"
+      ></textarea>
     </template>
     <!--div class="file_wrap">
       <div class="file_input_wrap">
@@ -131,10 +129,6 @@ const handleSubmit = async () => {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 0 1rem;
-}
-.input_wrap {
-  box-shadow: 0px 0px 1.25rem #000000;
 }
 .textarea_wrap {
   font-size: 0;
@@ -229,5 +223,12 @@ const handleSubmit = async () => {
 }
 .form_msg.error {
   color: var(--tertiary-color);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .contact_input_wrap {
+    gap: 1rem;
+  }
 }
 </style>

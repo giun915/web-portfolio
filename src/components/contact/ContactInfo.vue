@@ -47,6 +47,16 @@ const socialIconMap = {
   </div>
 </template>
 <style scoped>
+.contact_information_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--box-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
 .information_title {
   font-weight: 600;
   font-size: 1.5rem;
