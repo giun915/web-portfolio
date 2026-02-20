@@ -36,7 +36,9 @@ const sectionEls = ref<HTMLElement[]>([])
 const anchors = ref<string[]>([])
 
 const activeProjectIndex = ref<number | null>(null)
-const openProject = (index: number) => (activeProjectIndex.value = index)
+const openProject = (index: number) => {
+  activeProjectIndex.value = index
+}
 const closeProject = () => (activeProjectIndex.value = null)
 
 /* =========================================================================

@@ -4,7 +4,7 @@ import { projectList } from '@/constants/project/projectListData'
 import ProjectSlide from '@/components/project/ProjectSlide.vue'
 
 const emit = defineEmits<{
-  (e: 'open-project', id: number): void
+  (e: 'open-project', index: number): void
 }>()
 
 const categories = ['All', 'Web Site'] as const
@@ -56,7 +56,12 @@ watch(activeCategory, async () => {
               v-for="project in filteredProjects"
               :key="project.id"
               class="swiper-slide"
-              @click="emit('open-project', project.id)"
+              @click="
+                emit(
+                  'open-project',
+                  projectList.findIndex((p) => p.id === project.id),
+                )
+              "
             >
               <ProjectSlide :project="project" />
             </li>
