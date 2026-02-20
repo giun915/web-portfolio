@@ -33,11 +33,27 @@ import ContactInfo from '@/components/contact/ContactInfo.vue'
   display: flex;
   width: 100%;
   justify-content: center;
-  padding: 2.5rem 15rem;
   box-sizing: border-box;
   overflow: hidden;
+  margin-top: 3rem;
+  padding: 0 10rem 2rem;
+  gap: 2rem;
 }
 .section_content_area > * {
-  width: 50%;
+  flex: 1;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .section_content_area {
+    padding: 0 0 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section_content_area {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 </style>

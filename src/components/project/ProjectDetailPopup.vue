@@ -617,5 +617,12 @@ const goNext = () => {
   .project_key_list {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+
+  .box_footer a {
+    flex: 1;
+    justify-content: center;
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+  }
 }
 </style>
