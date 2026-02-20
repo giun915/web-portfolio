@@ -167,8 +167,8 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 9999px;
   background-color: #1d2229;
   transition: all 0.4s ease;
@@ -181,7 +181,7 @@ onBeforeUnmount(() => {
 }
 
 .close_btn i {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   line-height: 0;
 }
 
@@ -197,6 +197,15 @@ onBeforeUnmount(() => {
 
   .ham_btn {
     display: block;
+  }
+}
+@media (max-width: 768px) {
+  .page_inner {
+    padding: 1.25rem 0.875rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
   }
 }
 </style>
