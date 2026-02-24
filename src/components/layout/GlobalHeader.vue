@@ -162,7 +162,7 @@ onBeforeUnmount(() => {
 .close_btn {
   position: absolute;
   right: 1.6rem;
-  top: 2rem;
+  top: 1.75rem;
   z-index: 2;
   display: flex;
   justify-content: center;
