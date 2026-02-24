@@ -7,7 +7,7 @@ const emit = defineEmits<{
   (e: 'open-project', index: number): void
 }>()
 
-const categories = ['All', 'Web Site'] as const
+const categories = ['All', 'Web Site', 'E-Commerce'] as const
 type CategoryFilter = (typeof categories)[number]
 
 const activeCategory = ref<CategoryFilter>('All')
@@ -127,6 +127,7 @@ watch(activeCategory, async () => {
   box-sizing: border-box;
   cursor: pointer;
   width: calc((100% - 4rem) / 3);
+  max-height: 28.5rem;
 }
 
 .project_section .swiper-slide:hover :deep(.slide_main_img img) {

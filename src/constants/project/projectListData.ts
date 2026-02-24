@@ -3,6 +3,7 @@ import { IconHtml, IconResponsive } from '@/components/icons'
 import { projectImages } from '@/utils/projectImages'
 import IconCss from '@/components/icons/project/IconCss.vue'
 import IconVue from '@/components/icons/project/IconVue.vue'
+import IconJs from '@/components/icons/common/IconJs.vue'
 
 export type ProjectSkillItem = {
   icon: Component
@@ -23,6 +24,7 @@ export interface ProjectItem {
 }
 
 export const projectList: ProjectItem[] = [
+  /*
   {
     id: 1,
     client: 'JungIn',
@@ -35,6 +37,22 @@ export const projectList: ProjectItem[] = [
       { icon: IconHtml, className: 'html_icon' },
       { icon: IconCss, className: 'css_icon' },
       { icon: IconVue, className: 'vue_icon' },
+      { icon: IconResponsive, className: 'responsive_icon' },
+    ],
+  },
+  */
+  {
+    id: 2,
+    client: 'Self Project',
+    clientTheme: 'dark',
+    type: 'E-Commerce',
+    title: '카페24 쇼핑몰 구축',
+    desc: '카페24 기반으로 기획·퍼블리싱한 반응형 쇼핑몰 프로젝트',
+    image: projectImages['modeliang/main_display'] ?? '',
+    skills: [
+      { icon: IconHtml, className: 'html_icon' },
+      { icon: IconCss, className: 'css_icon' },
+      { icon: IconJs, className: 'js_icon' },
       { icon: IconResponsive, className: 'responsive_icon' },
     ],
   },

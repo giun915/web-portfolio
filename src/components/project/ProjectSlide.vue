@@ -75,7 +75,7 @@ defineProps<{
   padding: 1.5rem;
   background: var(--box-bg-color);
   height: calc(100% - 16rem);
-  justify-content: space-around;
+  gap: 0.875rem;
 }
 .content_header {
   display: flex;
@@ -99,6 +99,14 @@ defineProps<{
 
 .project_type[project-type='Web Site'] p {
   color: var(--tertiary-color);
+}
+
+.project_type[project-type='E-Commerce'] {
+  border-color: var(--secondary-color);
+}
+
+.project_type[project-type='E-Commerce'] p {
+  color: var(--secondary-color);
 }
 
 .skill_icon_list {
@@ -128,6 +136,10 @@ defineProps<{
   color: var(--gray-color);
   margin-bottom: 0.5rem;
   word-break: keep-all;
+}
+.view_btn_wrap {
+  line-height: 0;
+  margin-top: auto;
 }
 .view_btn {
   display: inline-flex;
