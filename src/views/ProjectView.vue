@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { projectList } from '@/constants/project/projectListData'
 import ProjectSlide from '@/components/project/ProjectSlide.vue'
 
 const emit = defineEmits<{
   (e: 'open-project', index: number): void
+  (e: 'filter-change'): void
 }>()
 
-const categories = ['All', 'Web Site', 'E-Commerce'] as const
+//const categories = ['All', 'Web Site', 'E-Commerce'] as const
+const categories = ['All', 'E-Commerce'] as const
 type CategoryFilter = (typeof categories)[number]
 
 const activeCategory = ref<CategoryFilter>('All')
@@ -17,8 +19,8 @@ const filteredProjects = computed(() => {
   return projectList.filter((p) => p.type === activeCategory.value)
 })
 
-watch(activeCategory, async () => {
-  await nextTick()
+watch(activeCategory, () => {
+  emit('filter-change')
 })
 </script>
 
