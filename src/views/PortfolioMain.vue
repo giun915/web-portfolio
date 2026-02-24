@@ -348,6 +348,16 @@ const initHorizontalSwipers = async () => {
   bindWheelControlsForMode()
 }
 
+const onProjectFilterChange = async () => {
+  await nextTick()
+
+  // projectSwiper는 PortfolioMain에서 만든 인스턴스
+  projectSwiper?.slideTo(0, 0) // 필터 바뀌면 첫 슬라이드로 안전하게
+  projectSwiper?.update()
+  projectSwiper?.updateSlidesClasses()
+  projectSwiper?.updateProgress()
+}
+
 /* =========================================================================
  * Wheel Binding (Mode-aware)
  * -------------------------------------------------------------------------
@@ -535,7 +545,7 @@ onBeforeUnmount(() => {
       <IntroView :active="activeSectionIndex === 0" :goToSlide="goToSlide" :anchors="anchors" />
       <AboutView />
       <SkillsView />
-      <ProjectView @open-project="openProject" />
+      <ProjectView @open-project="openProject" @filter-change="onProjectFilterChange" />
       <ContactView />
     </div>
   </main>
@@ -543,7 +553,7 @@ onBeforeUnmount(() => {
     <IntroView :active="activeSectionIndex === 0" :goToSlide="goToSlide" :anchors="anchors" />
     <AboutView />
     <SkillsView />
-    <ProjectView @open-project="openProject" />
+    <ProjectView @open-project="openProject" @filter-change="onProjectFilterChange" />
     <ContactView />
   </main>
 
