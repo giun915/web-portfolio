@@ -12,4 +12,13 @@ const router = createRouter({
   ],
 })
 
+/* --- Google Analytics page tracking --- */
+router.afterEach((to) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('config', 'G-XXXXXXXXXX', {
+      page_path: to.fullPath,
+    })
+  }
+})
+
 export default router
