@@ -62,7 +62,7 @@ export const projectDetailList: ProjectDetail[] = [
 
     mainSkills: [
       { label: 'HTML/CSS', className: 'html_badge' },
-      { label: 'JQuery', className: 'javascript_badge' },
+      { label: 'Vue3', className: 'javascript_badge' },
       { label: 'Responsive', className: 'responsive_badge' },
     ],
 
@@ -76,7 +76,7 @@ export const projectDetailList: ProjectDetail[] = [
       {
         title: 'Technologies',
         icon: markRaw(IconTechnology),
-        content: 'HTML5, CSS3, Vue',
+        content: 'HTML5, CSS3, Vue3',
         className: 'project_technologies_item',
       },
       {
