@@ -9,7 +9,7 @@ const emit = defineEmits<{
 }>()
 
 //const categories = ['All', 'Web Site', 'E-Commerce'] as const
-const categories = ['All', 'E-Commerce'] as const
+const categories = ['All', 'Web Site', 'E-Commerce'] as const
 type CategoryFilter = (typeof categories)[number]
 
 const activeCategory = ref<CategoryFilter>('All')

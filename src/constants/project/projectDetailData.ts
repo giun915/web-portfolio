@@ -52,7 +52,7 @@ export interface ProjectDetail {
 }
 
 export const projectDetailList: ProjectDetail[] = [
-  /*{
+  {
     id: 1,
 
     title: '정인 인테리어',
@@ -112,10 +112,10 @@ export const projectDetailList: ProjectDetail[] = [
       projectImages['jungin/section3'] ?? '',
     ],
     links: {
-      demo: 'https://jungin-interior.co.kr',
-      github: 'https://jungin-interior.co.kr',
+      demo: 'https://giun915.github.io/jungin',
+      github: 'https://github.com/giun915/jungin',
     },
-  },*/
+  },
   {
     id: 2,
 

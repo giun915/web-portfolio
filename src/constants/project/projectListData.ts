@@ -24,7 +24,6 @@ export interface ProjectItem {
 }
 
 export const projectList: ProjectItem[] = [
-  /*
   {
     id: 1,
     client: 'JungIn',
@@ -40,7 +39,6 @@ export const projectList: ProjectItem[] = [
       { icon: IconResponsive, className: 'responsive_icon' },
     ],
   },
-  */
   {
     id: 2,
     client: 'Self Project',
