@@ -29,7 +29,7 @@ export const projectList: ProjectItem[] = [
     client: 'JungIn',
     clientTheme: 'dark',
     type: 'Web Site',
-    title: '정인 인테리어1',
+    title: '정인 인테리어',
     desc: '인테리어 업체 반응형 웹사이트 퍼블리싱 작업',
     image: projectImages['jungin/main_display'] ?? '',
     skills: [
